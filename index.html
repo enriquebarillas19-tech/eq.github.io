@@ -4,176 +4,439 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#2c2a55">
+<meta name="theme-color" content="#171531">
 <title>Para Priscila ✨</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✨%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📖%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Quicksand:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Quicksand:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Quicksand:wght@500;600;700&display=swap"></noscript>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
   body{
-    font-family:'Quicksand',system-ui,sans-serif;
-    color:#3a2f4a;
+    font-family:'Lora',Georgia,serif;
     overflow:hidden;
     touch-action:manipulation;
-    background:#1b1f3f;
+    background:#171531;
   }
 
-  /* ---------- capas de fondo (crossfade) ---------- */
-  .bglayer{position:fixed;inset:0;z-index:-3;opacity:0;transition:opacity 1.6s ease}
+  /* ============================================================
+     AMBIENTE (detrás del libro): cielo que cambia por página
+     ============================================================ */
+  .bglayer{position:fixed;inset:0;z-index:0;opacity:0;transition:opacity 1.8s ease}
   .bglayer.front{opacity:1}
-  .bg-night {background:linear-gradient(180deg,#161a38 0%,#2c2a55 45%,#4a3d6e 100%)}
-  .bg-dawn  {background:linear-gradient(180deg,#8a7ab5 0%,#cfa6c4 45%,#f8d3b0 100%)}
-  .bg-meadow{background:linear-gradient(180deg,#8fb59d 0%,#cfd8a9 55%,#f0e3b8 100%)}
-  .bg-sky   {background:linear-gradient(180deg,#8fb8d8 0%,#c3d9e8 50%,#eef4f0 100%)}
-  .bg-teal  {background:linear-gradient(180deg,#79b0a6 0%,#aed3c5 55%,#eaf1e1 100%)}
-  .bg-rose  {background:linear-gradient(180deg,#cf93a0 0%,#eabbb5 50%,#f9e3cf 100%)}
-  .bg-coffee{background:linear-gradient(180deg,#54453d 0%,#8a6c58 55%,#d9b896 100%)}
-  .bg-cream {background:linear-gradient(180deg,#dcbccb 0%,#ecdcc4 50%,#c9ddd1 100%)}
-  .bg-lilac {background:linear-gradient(180deg,#ab90c9 0%,#d3b3da 50%,#f2dbe2 100%)}
-  .bg-sunset{background:linear-gradient(180deg,#6e4a78 0%,#b06888 50%,#e89a78 100%)}
-  .bg-gold  {background:linear-gradient(180deg,#8fadc9 0%,#ecc08e 55%,#f9dca4 100%)}
-  .bg-dusk  {background:linear-gradient(180deg,#38335e 0%,#6a4a78 55%,#a86888 100%)}
-  .bg-fiesta{background:linear-gradient(180deg,#ffd9a8 0%,#ffc9c4 45%,#d9c9ee 100%)}
+  .bg-night {background:radial-gradient(120% 90% at 50% 0%,#2e2b5e 0%,#1b1940 45%,#0f0e26 100%)}
+  .bg-dawn  {background:radial-gradient(120% 90% at 50% 0%,#8a7ab5 0%,#5c4a80 50%,#241d3f 100%)}
+  .bg-meadow{background:radial-gradient(120% 90% at 50% 0%,#5f8a6d 0%,#3d5c49 55%,#17251c 100%)}
+  .bg-sky   {background:radial-gradient(120% 90% at 50% 0%,#6f9cc0 0%,#41618b 55%,#141d33 100%)}
+  .bg-teal  {background:radial-gradient(120% 90% at 50% 0%,#4f8a80 0%,#33594f 55%,#101f1b 100%)}
+  .bg-rose  {background:radial-gradient(120% 90% at 50% 0%,#b3697c 0%,#6e3a50 55%,#26101c 100%)}
+  .bg-coffee{background:radial-gradient(120% 90% at 50% 0%,#7a5b44 0%,#4a352a 55%,#191008 100%)}
+  .bg-cream {background:radial-gradient(120% 90% at 50% 0%,#c9a3b4 0%,#8a6a86 55%,#2c2135 100%)}
+  .bg-lilac {background:radial-gradient(120% 90% at 50% 0%,#9678bd 0%,#5d4382 55%,#1e1233 100%)}
+  .bg-sunset{background:radial-gradient(120% 90% at 50% 0%,#c07a63 0%,#7d3f58 55%,#251024 100%)}
+  .bg-gold  {background:radial-gradient(120% 90% at 50% 0%,#d9a860 0%,#8a5f38 55%,#2a1a0d 100%)}
+  .bg-dusk  {background:radial-gradient(120% 90% at 50% 0%,#5d5490 0%,#3c3163 55%,#120e29 100%)}
+  .bg-fiesta{background:radial-gradient(120% 90% at 50% 0%,#e8a87c 0%,#a05c72 55%,#2e1638 100%)}
 
-  /* manchas de acuarela flotantes */
-  .blobs{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
-  .blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.35;animation:drift 16s ease-in-out infinite alternate}
-  .blob.b1{width:46vmin;height:46vmin;left:-10vmin;top:6vmin;background:#ffffff}
-  .blob.b2{width:52vmin;height:52vmin;right:-14vmin;top:34vmin;background:#ffd9b8;animation-delay:-6s}
-  .blob.b3{width:40vmin;height:40vmin;left:18vmin;bottom:-10vmin;background:#c9b8ee;animation-delay:-11s}
-  @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(4vmin,-5vmin) scale(1.12)}}
-
-  /* estrellas */
-  #stars{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
-  body.starry #stars{opacity:1}
+  /* estrellas del ambiente */
+  #stars{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;visibility:hidden;transition:opacity 1.6s ease,visibility 0s linear 1.6s}
+  body.starry #stars{opacity:1;visibility:visible;transition:opacity 1.6s ease}
   #stars i{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3.2s ease-in-out infinite}
-  @keyframes twinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+  @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:.95;transform:scale(1.15)}}
 
   /* luciérnagas */
-  #fireflies{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
-  body.glowy #fireflies{opacity:1}
+  #fireflies{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;visibility:hidden;transition:opacity 1.6s ease,visibility 0s linear 1.6s}
+  body.glowy #fireflies{opacity:1;visibility:visible;transition:opacity 1.6s ease}
   #fireflies i{position:absolute;bottom:-4vh;width:5px;height:5px;border-radius:50%;
     background:radial-gradient(circle,#fff8d8 0%,#f5d98a 55%,transparent 75%);
-    box-shadow:0 0 10px 3px rgba(250,224,150,.5);animation:rise-fly linear infinite}
+    box-shadow:0 0 12px 4px rgba(250,224,150,.45);animation:rise-fly linear infinite}
   @keyframes rise-fly{
     0%{transform:translate(0,0);opacity:0}
     12%{opacity:.9}
     50%{transform:translate(3vmin,-46vh)}
-    88%{opacity:.7}
+    88%{opacity:.6}
     100%{transform:translate(-2vmin,-96vh);opacity:0}
   }
 
-  /* barra de progreso */
-  #progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:50;background:rgba(255,255,255,.14)}
+  /* lluvia ambiental (página del café) */
+  #rain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;visibility:hidden;transition:opacity 1.6s ease,visibility 0s linear 1.6s}
+  body.rainy #rain{opacity:1;visibility:visible;transition:opacity 1.6s ease}
+  #rain i{position:absolute;top:-14vh;width:1.5px;height:38px;border-radius:2px;
+    background:linear-gradient(180deg,transparent,rgba(220,230,255,.45));animation:fall linear infinite}
+  @keyframes fall{to{transform:translateY(125vh)}}
+
+  /* motas de polvo doradas flotando siempre, muy sutiles */
+  #dust{position:fixed;inset:0;z-index:1;pointer-events:none}
+  #dust i{position:absolute;width:3px;height:3px;border-radius:50%;
+    background:rgba(255,240,200,.35);animation:drift-dust ease-in-out infinite alternate}
+  @keyframes drift-dust{from{transform:translate(0,0)}to{transform:translate(3vmin,-4vmin)}}
+
+  /* viñeta suave sobre el ambiente */
+  #vignette{position:fixed;inset:0;z-index:2;pointer-events:none;
+    background:radial-gradient(120% 100% at 50% 45%,transparent 55%,rgba(0,0,0,.5) 100%)}
+
+  /* barra de progreso: listón dorado */
+  #progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:80;background:rgba(255,255,255,.09)}
   #progressFill{height:100%;width:0;border-radius:0 4px 4px 0;
-    background:linear-gradient(90deg,#f5c66a,#f097a8);transition:width .7s ease}
+    background:linear-gradient(90deg,#d4a95c,#f0c98a);transition:width .8s ease;
+    box-shadow:0 0 8px rgba(240,200,120,.6)}
 
-  /* ---------- escenas ---------- */
-  .scene{
-    position:fixed;inset:0;
-    display:none;
-    flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
-    padding:44px 24px 52px;
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
+  /* ============================================================
+     EL LIBRO
+     ============================================================ */
+  #stage{
+    position:fixed;inset:0;z-index:10;
+    display:flex;align-items:center;justify-content:center;
+    perspective:1800px;
   }
-  .scene.active{display:flex;animation:sceneIn .9s ease both}
-  @keyframes sceneIn{from{opacity:0}to{opacity:1}}
-  .scene[data-ink="light"]{color:#fdf6ec}
-  .wrap{max-width:31rem;width:100%;margin:auto;display:flex;flex-direction:column;align-items:center;gap:0}
+  #book{
+    position:relative;
+    width:min(88vw,400px);
+    height:min(76vh,620px);
+    height:min(76dvh,620px);
+    transform-style:preserve-3d;
+    transition:transform 1s ease;
+  }
+  /* bloque de hojas: canto derecho e inferior que dan grosor */
+  #book::before{
+    content:'';position:absolute;top:1.5%;right:-7px;bottom:1%;width:10px;
+    background:
+      repeating-linear-gradient(180deg,#efe4cc 0 2px,#ddcfb2 2px 4px);
+    border-radius:0 6px 6px 0;
+    box-shadow:3px 4px 14px rgba(0,0,0,.45);
+    transition:opacity .6s .5s ease;
+  }
+  #book::after{
+    content:'';position:absolute;left:4%;right:-6px;bottom:-7px;height:9px;
+    background:repeating-linear-gradient(90deg,#e8dcc2 0 3px,#d6c7a8 3px 6px);
+    border-radius:0 0 6px 6px;
+    box-shadow:0 6px 18px rgba(0,0,0,.5);
+  }
+  /* lomo izquierdo */
+  #spine{
+    position:absolute;left:-9px;top:-2px;bottom:-2px;width:16px;
+    background:linear-gradient(90deg,#3a1c2e 0%,#5a2e46 60%,#432135 100%);
+    border-radius:8px 0 0 8px;
+    box-shadow:inset -3px 0 6px rgba(0,0,0,.4), -4px 3px 16px rgba(0,0,0,.5);
+    z-index:1;
+  }
+  #spine::before,#spine::after{
+    content:'';position:absolute;left:2px;right:2px;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,#d4a95c,#8a6a35);opacity:.8;
+  }
+  #spine::before{top:26px}
+  #spine::after{bottom:26px}
 
-  .scene p{font-size:1.13rem;line-height:1.75;font-weight:500;margin:.55rem 0;text-wrap:pretty}
-  .scene h1{font-family:'Caveat',cursive;font-weight:700;font-size:3rem;line-height:1.15;margin:.4rem 0 .2rem}
-  .scene h2{font-family:'Caveat',cursive;font-weight:700;font-size:2.3rem;line-height:1.2;margin:.3rem 0 .5rem}
-  .sub{opacity:.82;font-size:1rem !important}
+  /* --------- textura de papel (turbulencia SVG en data-uri) --------- */
+  .paper{
+    background-color:#f6ecd8;
+    background-image:
+      radial-gradient(130% 100% at 15% 50%, rgba(120,90,60,.14) 0%, transparent 32%),
+      radial-gradient(100% 100% at 100% 100%, rgba(140,110,80,.10) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* --------- hojas --------- */
+  .sheet{
+    position:absolute;inset:0;
+    transform-style:preserve-3d;
+    transform-origin:left center;
+    transition:transform 1.05s cubic-bezier(.45,.05,.28,1);
+    border-radius:0 10px 10px 0;
+  }
+  .sheet.flipped{transform:rotateY(-180deg);pointer-events:none}
+  .sheet.gone{visibility:hidden}
+  .sheet.offstage{visibility:hidden}
+  .face{
+    position:absolute;inset:0;
+    -webkit-backface-visibility:hidden;backface-visibility:hidden;
+    border-radius:0 10px 10px 0;
+  }
+  .face.back{
+    transform:rotateY(180deg);
+    background-color:#efe3cc;
+  }
+  .face.back::after{
+    content:'✦';
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-size:1.6rem;color:rgba(120,90,60,.18);
+  }
+  /* sombra que barre la hoja mientras gira */
+  .face.front::before{
+    content:'';position:absolute;inset:0;z-index:6;pointer-events:none;
+    background:linear-gradient(90deg,rgba(60,35,20,.35),transparent 45%);
+    opacity:0;transition:opacity .5s ease;
+  }
+  .sheet.flipping .face.front::before{opacity:1}
+  /* sombra interior del lomo en cada página */
+  .face.front::after{
+    content:'';position:absolute;top:0;bottom:0;left:0;width:26px;z-index:5;pointer-events:none;
+    background:linear-gradient(90deg,rgba(90,60,35,.28),transparent);
+  }
+
+  /* --------- portada de cuero --------- */
+  #cover{
+    position:absolute;inset:0;z-index:60;
+    transform-style:preserve-3d;
+    transform-origin:left center;
+    transition:transform 1.35s cubic-bezier(.5,.05,.25,1);
+    cursor:pointer;
+    border-radius:0 12px 12px 0;
+  }
+  #cover.open{transform:rotateY(-180deg);pointer-events:none}
+  .cover-face{
+    position:absolute;inset:0;
+    -webkit-backface-visibility:hidden;backface-visibility:hidden;
+    border-radius:0 12px 12px 0;
+  }
+  .cover-front{
+    background:
+      radial-gradient(140% 120% at 25% 15%, rgba(255,190,150,.16) 0%, transparent 45%),
+      radial-gradient(120% 120% at 80% 100%, rgba(0,0,0,.35) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23l)'/%3E%3C/svg%3E"),
+      linear-gradient(150deg,#6b3752 0%,#5a2e46 45%,#3f1f33 100%);
+    box-shadow:inset 0 0 0 1px rgba(255,215,150,.12);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;color:#e8c98a;
+    padding:2rem 1.6rem;
+  }
+  .cover-back{
+    transform:rotateY(180deg);
+    background:linear-gradient(150deg,#4a2439 0%,#3a1c2e 100%);
+  }
+  /* marco dorado doble */
+  .frame{position:absolute;inset:12px;border:2px solid rgba(212,169,92,.75);border-radius:0 8px 8px 0;pointer-events:none}
+  .frame::before{content:'';position:absolute;inset:6px;border:1px solid rgba(212,169,92,.45);border-radius:0 6px 6px 0}
+  /* esquinas ornamentales */
+  .corner{position:absolute;width:34px;height:34px;pointer-events:none;opacity:.85}
+  .corner svg{width:100%;height:100%}
+  .c-tl{top:16px;left:16px}
+  .c-tr{top:16px;right:16px;transform:scaleX(-1)}
+  .c-bl{bottom:16px;left:16px;transform:scaleY(-1)}
+  .c-br{bottom:16px;right:16px;transform:scale(-1)}
+
+  #cover h1{
+    font-family:'Caveat',cursive;font-weight:700;
+    font-size:clamp(2.4rem,10vw,3.2rem);line-height:1.15;
+    text-shadow:0 2px 12px rgba(0,0,0,.45);
+    margin-top:1.1rem;
+    background:linear-gradient(180deg,#f4dca5 0%,#d4a95c 70%);
+    -webkit-background-clip:text;background-clip:text;
+    color:#eccf92;-webkit-text-fill-color:transparent;
+  }
+  #cover .cov-sub{
+    font-family:'Lora',serif;font-style:italic;font-size:.95rem;
+    color:#d9bd8d;opacity:.9;margin-top:.5rem;max-width:15rem;
+  }
+  .medallion{
+    width:120px;height:120px;border-radius:50%;
+    border:2px solid rgba(212,169,92,.8);
+    box-shadow:inset 0 0 22px rgba(0,0,0,.45), 0 0 18px rgba(212,169,92,.25);
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 35% 30%, rgba(255,220,160,.14), transparent 65%);
+  }
+  .medallion svg{width:86px;height:auto}
+  #cover .hint{
+    position:absolute;bottom:34px;left:0;right:0;
+    font-family:'Quicksand',sans-serif;font-weight:600;font-size:.9rem;
+    color:#e8c98a;opacity:.85;
+    animation:hintPulse 2.2s ease-in-out infinite;
+  }
+  @keyframes hintPulse{0%,100%{opacity:.5;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+
+  /* aparición inicial del libro */
+  #book{animation:bookIn 1.4s .2s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes bookIn{from{opacity:0;transform:translateY(34px) rotateX(8deg) scale(.94)}to{opacity:1;transform:none}}
+
+  /* ============================================================
+     CONTENIDO DE LAS PÁGINAS
+     ============================================================ */
+  .pg{
+    position:relative;width:100%;height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;color:#4a3b33;
+    padding:2rem 1.5rem 2.4rem;
+    overflow-y:auto;
+    border-radius:inherit;
+    -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  }
+  .pg p{font-size:1.02rem;line-height:1.72;margin:.5rem 0;font-weight:500;text-wrap:pretty}
+  .pg .peq{font-size:.9rem;opacity:.8}
+  .pg h2{
+    font-family:'Caveat',cursive;font-weight:700;font-size:2.15rem;line-height:1.15;
+    color:#5a3b50;margin-bottom:.4rem;
+  }
+  /* efecto de escritura a tinta para títulos */
+  .ink{display:inline-block;clip-path:inset(-12% 102% -12% -2%)}
+  .active .ink{animation:write 1.15s .25s cubic-bezier(.4,0,.4,1) forwards}
+  @keyframes write{to{clip-path:inset(-12% -6% -12% -2%)}}
+
+  /* ornamento divisor */
+  .orna{width:110px;height:14px;opacity:.55;margin:.35rem auto}
+  .orna svg{width:100%;height:100%}
+
+  /* número de página */
+  .pnum{
+    position:absolute;bottom:12px;left:0;right:0;
+    font-style:italic;font-size:.78rem;color:rgba(110,80,60,.55);
+    pointer-events:none;
+  }
+  /* listón marcador en la esquina */
+  .ribbon{
+    position:absolute;top:-4px;right:26px;width:22px;height:58px;z-index:6;pointer-events:none;
+    background:linear-gradient(180deg,#c25b6b,#a03a50);
+    clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);
+    box-shadow:0 3px 8px rgba(0,0,0,.2);
+    opacity:.9;
+  }
 
   /* revelado escalonado */
   .rev{opacity:0}
-  .scene.active .rev{animation:rise .95s var(--d,0s) both cubic-bezier(.2,.7,.3,1)}
-  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .active .rev{animation:rise .95s var(--d,0s) both cubic-bezier(.2,.7,.3,1)}
+  @keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
 
-  /* botones */
-  .btn{
-    font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.02rem;
-    color:#5a3d66;background:rgba(255,255,255,.92);
-    border:none;border-radius:999px;
-    padding:.85rem 2.1rem;margin-top:1.6rem;
-    box-shadow:0 6px 22px rgba(40,20,60,.22);
-    cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;
+  /* mancha de acuarela que florece detrás de las ilustraciones */
+  .wash{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:.5rem}
+  .wash::before{
+    content:'';position:absolute;width:115%;height:110%;border-radius:50%;
+    background:var(--wash,radial-gradient(circle,rgba(150,180,140,.4),transparent 70%));
+    filter:blur(14px);
+    transform:scale(.4);opacity:0;
   }
-  .btn:active{transform:scale(.95)}
+  .active .wash::before{animation:bloom 1.6s .35s ease-out forwards}
+  @keyframes bloom{to{transform:scale(1);opacity:1}}
+  .wash svg{position:relative}
+
+  /* botones — sello de cera / etiqueta dorada */
+  .btn{
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:.98rem;
+    color:#5a3b2a;
+    background:linear-gradient(180deg,#f3dfae,#e2c284);
+    border:1px solid rgba(140,100,50,.45);
+    border-radius:999px;
+    padding:.78rem 1.9rem;margin-top:1.25rem;
+    box-shadow:0 4px 14px rgba(80,50,20,.28), inset 0 1px 0 rgba(255,255,255,.5);
+    cursor:pointer;transition:transform .18s ease,box-shadow .2s ease;
+  }
+  .btn:active{transform:scale(.94)}
   .btn:disabled{pointer-events:none}
-  .btn.pulse{animation:rise .95s var(--d,0s) both cubic-bezier(.2,.7,.3,1),pulse 2.4s 2.2s ease-in-out infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 6px 22px rgba(40,20,60,.22)}50%{box-shadow:0 6px 30px rgba(255,220,160,.55)}}
+  .btn.pulse{animation:rise .95s var(--d,0s) both cubic-bezier(.2,.7,.3,1),glowPulse 2.6s 2.4s ease-in-out infinite}
+  @keyframes glowPulse{0%,100%{box-shadow:0 4px 14px rgba(80,50,20,.28), inset 0 1px 0 rgba(255,255,255,.5)}50%{box-shadow:0 4px 22px rgba(212,169,92,.65), inset 0 1px 0 rgba(255,255,255,.5)}}
   .hidden{display:none !important}
 
-  .art{width:min(72vw,300px);height:auto;margin:0 0 .6rem;overflow:visible}
-  .art-sm{width:min(46vw,190px)}
+  .art{width:min(60vw,250px);height:auto;overflow:visible}
+  .art-sm{width:min(44vw,180px)}
 
-  /* pegaso flotando */
   .float{animation:floaty 4.5s ease-in-out infinite}
-  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-  /* alas que se despliegan (escena 4) */
-  .wing-fold{transform-box:view-box;transform-origin:112px 44px;opacity:0;transform:rotate(38deg) scale(.5)}
-  .scene.active .wing-fold{animation:unfold 1.6s 1.3s cubic-bezier(.2,.7,.3,1.1) both}
-  @keyframes unfold{from{opacity:0;transform:rotate(38deg) scale(.5)}to{opacity:1;transform:none}}
+  /* pajaritos que cruzan (página del camino) */
+  .birds path{stroke:#54406e;stroke-width:2;fill:none;stroke-linecap:round}
+  .active .birds{animation:birdsFly 9s 1.5s linear infinite}
+  @keyframes birdsFly{from{transform:translateX(-16px)}50%{transform:translateX(26px) translateY(-8px)}to{transform:translateX(-16px)}}
 
-  /* ---------- escena 5: constelación ---------- */
+  /* líneas de viento (página de volar) */
+  .wind path{stroke:rgba(90,120,160,.5);stroke-width:2.5;fill:none;stroke-linecap:round;
+    stroke-dasharray:60 240}
+  .active .wind path{animation:windBlow 3.2s linear infinite}
+  .active .wind path:nth-child(2){animation-delay:1.1s}
+  .active .wind path:nth-child(3){animation-delay:2s}
+  @keyframes windBlow{from{stroke-dashoffset:300}to{stroke-dashoffset:0}}
+
+  /* ============================================================
+     PÁGINA NOCHE (constelación)
+     ============================================================ */
+  .pg-night{
+    background:
+      radial-gradient(110% 90% at 50% 0%,#31305e 0%,#232148 55%,#191735 100%);
+    color:#f2e9d8;
+  }
+  .pg-night h2{color:#f0dfae}
+  .pg-night .pnum{color:rgba(240,230,210,.4)}
+  .pg-night::after{ /* borde de papel pintado */
+    content:'';position:absolute;inset:0;pointer-events:none;
+    box-shadow:inset 0 0 0 6px rgba(246,236,216,.9), inset 0 0 26px rgba(0,0,0,.5);
+    border-radius:inherit;
+  }
   .cstar{cursor:pointer}
-  .cstar .halo{fill:rgba(255,236,170,.0);transition:fill .5s}
-  .cstar .core{fill:#cfc7ee;transition:fill .4s, filter .4s}
-  .cstar.lit .core{fill:#ffe9a8;filter:drop-shadow(0 0 7px rgba(255,225,140,.95))}
+  .cstar .hit{fill:transparent}
+  .cstar .halo{fill:rgba(255,236,170,0);transition:fill .5s}
+  .cstar .core{fill:#b9b0dd;transition:fill .4s, filter .4s}
+  .cstar.lit .core{fill:#ffe9a8;filter:drop-shadow(0 0 8px rgba(255,225,140,.95))}
   .cstar.lit .halo{fill:rgba(255,236,170,.16)}
   .cstar:not(.lit) .core{animation:twinkle 2.6s ease-in-out infinite}
   .cline{fill:none;stroke:#ffe9b8;stroke-width:1.4;stroke-linecap:round;opacity:0;
     stroke-dasharray:600;stroke-dashoffset:600}
   svg.done .cline{opacity:.85;animation:draw 2.6s ease forwards}
   @keyframes draw{to{stroke-dashoffset:0}}
-  #starMsg{min-height:3.4em;font-size:1.06rem;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 6px}
+  #starMsg{min-height:3.2em;font-size:.98rem;font-weight:500;display:flex;align-items:center;justify-content:center;padding:0 6px}
   #starMsg span{animation:rise .6s both}
-  #starCount{font-size:.9rem;opacity:.75;letter-spacing:.06em;margin-top:.2rem}
-  #s5end{margin-top:.4rem}
+  #starCount{font-size:.82rem;opacity:.7;letter-spacing:.08em;margin-top:.15rem;font-family:'Quicksand',sans-serif}
   #s5end.show p{animation:rise .9s both}
   #s5end.show .btn{animation:rise .9s .5s both}
 
-  /* ---------- escena 9: tarjetitas ---------- */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:24rem;margin-top:.9rem}
+  /* ============================================================
+     STICKERS (página de gustos) — estilo scrapbook
+     ============================================================ */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;max-width:22rem;margin-top:.7rem}
   .card{
-    font-family:'Quicksand',sans-serif;font-weight:600;font-size:.78rem;color:#4a3350;
-    background:rgba(255,255,255,.82);border:none;border-radius:18px;
-    padding:.8rem .3rem .7rem;cursor:pointer;
-    box-shadow:0 4px 14px rgba(60,30,70,.14);
-    transition:transform .18s ease,background .3s ease,opacity .3s ease;
-    display:flex;flex-direction:column;align-items:center;gap:4px;line-height:1.25;
+    position:relative;
+    font-family:'Quicksand',sans-serif;font-weight:600;font-size:.72rem;color:#4a3b33;
+    background:#fdf8ec;
+    border:1px solid rgba(150,120,90,.35);
+    border-radius:10px;
+    padding:.85rem .25rem .6rem;cursor:pointer;
+    box-shadow:0 3px 10px rgba(90,60,30,.22);
+    transition:transform .18s ease,background .3s ease,box-shadow .3s ease;
+    display:flex;flex-direction:column;align-items:center;gap:4px;line-height:1.2;
   }
-  .card em{font-style:normal;font-size:1.7rem;line-height:1}
-  .card:active{transform:scale(.93)}
-  .card.seen{background:#ffeccb;box-shadow:0 4px 16px rgba(240,180,90,.4)}
-  .card.no{background:rgba(255,255,255,.45);opacity:.75}
+  .card:nth-child(3n+1){transform:rotate(-2.5deg)}
+  .card:nth-child(3n+2){transform:rotate(1.6deg)}
+  .card:nth-child(3n){transform:rotate(-1deg)}
+  /* cinta adhesiva */
+  .card::before{
+    content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%) rotate(-3deg);
+    width:34px;height:13px;border-radius:2px;
+    background:rgba(232,210,160,.85);
+    box-shadow:0 1px 3px rgba(0,0,0,.15);
+  }
+  .card em{font-style:normal;font-size:1.55rem;line-height:1}
+  .card:active{transform:scale(.92)}
+  .card.seen{background:#fbeccb;box-shadow:0 3px 14px rgba(212,160,80,.5)}
+  .card.no{background:rgba(250,245,235,.6);opacity:.72}
   .card.no em{filter:grayscale(.7)}
   .card.shake{animation:shake .5s ease}
-  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px) rotate(-3deg)}55%{transform:translateX(6px) rotate(3deg)}80%{transform:translateX(-3px)}}
-  #cardMsg{
-    min-height:3.6em;margin-top:1rem;font-size:1.05rem;font-weight:600;
-    display:flex;align-items:center;justify-content:center;padding:0 8px;
-  }
+  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px) rotate(-4deg)}55%{transform:translateX(6px) rotate(3deg)}80%{transform:translateX(-3px)}}
+  #cardMsg{min-height:3.2em;margin-top:.8rem;font-size:.96rem;font-weight:500;
+    display:flex;align-items:center;justify-content:center;padding:0 8px;font-style:italic}
   #cardMsg span{animation:rise .5s both}
 
-  /* ---------- escena 13: velitas ---------- */
+  /* ============================================================
+     VELITAS
+     ============================================================ */
+  .cakebox{position:relative}
+  .cakeglow{
+    position:absolute;top:6%;left:50%;transform:translateX(-50%);
+    width:150px;height:90px;border-radius:50%;
+    background:radial-gradient(ellipse,rgba(255,200,110,.5),transparent 70%);
+    filter:blur(10px);
+    animation:glowFlick 1.1s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+  @keyframes glowFlick{from{opacity:.75;transform:translateX(-50%) scale(1)}to{opacity:1;transform:translateX(-50%) scale(1.08)}}
+  .cakebox.allout .cakeglow{opacity:0;transition:opacity .8s ease}
   .candle{cursor:pointer}
   .flame{transform-origin:center 100%;animation:flick .55s ease-in-out infinite alternate}
   @keyframes flick{from{transform:scale(1) rotate(-2.5deg)}to{transform:scale(1.08) rotate(2.5deg)}}
   .candle.out .flame{animation:blowout .5s ease forwards}
   @keyframes blowout{40%{transform:scale(1.25);opacity:.85}100%{transform:scale(.05);opacity:0}}
-  .smoke{opacity:0;stroke:#e8e0f0;stroke-width:2;fill:none;stroke-linecap:round}
+  .smoke{opacity:0;stroke:#a9a0c0;stroke-width:2;fill:none;stroke-linecap:round}
   .candle.out .smoke{animation:puff 1.6s .3s ease-out forwards}
   @keyframes puff{0%{opacity:0;transform:translateY(2px)}25%{opacity:.7}100%{opacity:0;transform:translateY(-16px)}}
-  #wish{margin-top:.6rem}
+  #wish{margin-top:.4rem}
   #wish p{opacity:0}
   #wish .btn{opacity:0;pointer-events:none}
   #wish.show .btn{pointer-events:auto}
@@ -184,43 +447,50 @@
   #wish.show p:nth-of-type(4){animation-delay:2.5s}
   #wish.show .btn{animation:rise 1s 3.3s both}
 
-  /* latido del corazón (escena 6) */
+  /* latido del corazón */
   .beat{transform-box:fill-box;transform-origin:center;animation:beat 1.3s ease-in-out infinite}
   @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 
-  /* lluvia escena café */
-  .rain{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-  .rain i{position:absolute;top:-12vh;width:1.5px;height:34px;border-radius:2px;
-    background:linear-gradient(180deg,transparent,rgba(240,244,255,.5));animation:fall linear infinite}
-  @keyframes fall{to{transform:translateY(120vh)}}
+  /* rayos de sol girando (página del sueño) */
+  .rays{transform-box:fill-box;transform-origin:center;animation:spin 26s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
 
-  /* chispas finales */
-  .confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-  .confetti i{position:absolute;top:-6vh;font-size:15px;animation:cfall linear infinite}
-  @keyframes cfall{to{transform:translateY(115vh) rotate(340deg)}}
+  /* confeti dentro de la última página */
+  .confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit}
+  .confetti i{position:absolute;top:-8%;font-size:14px;animation:cfall linear infinite}
+  @keyframes cfall{to{transform:translateY(112vh) rotate(340deg)}}
 
-  /* firma */
-  .firma{font-family:'Caveat',cursive;font-size:1.9rem;margin-top:1rem}
+  .firma{font-family:'Caveat',cursive;font-size:1.9rem;margin-top:.9rem;color:#5a3b50}
 
   .quote{
-    font-size:1.22rem;line-height:1.8;font-weight:600;
-    padding:1.1rem 1.2rem;border-radius:22px;
-    background:rgba(255,255,255,.14);
-    -webkit-backdrop-filter:blur(3px);
-    backdrop-filter:blur(3px);
+    font-size:1.05rem;line-height:1.75;font-style:italic;
+    padding:1.1rem 1.15rem;border-radius:4px;
+    background:
+      linear-gradient(180deg,rgba(212,169,92,.10),rgba(212,169,92,.16)),
+      #fbf4e2;
+    border:1px solid rgba(150,110,60,.3);
+    box-shadow:0 3px 12px rgba(90,60,30,.15);
+    position:relative;
   }
-  .qmark{font-family:'Caveat',cursive;font-size:3.4rem;line-height:.4;display:block;opacity:.75}
+  .quote::before,.quote::after{
+    font-family:'Caveat',cursive;font-size:3rem;line-height:0;
+    position:absolute;color:rgba(150,100,60,.4);
+  }
+  .quote::before{content:'“';top:16px;left:8px}
+  .quote::after{content:'”';bottom:0;right:10px}
 
   .linda{
-    font-family:'Caveat',cursive;font-weight:700;font-size:4.6rem;line-height:1.1;
+    font-family:'Caveat',cursive;font-weight:700;font-size:4.2rem;line-height:1.1;
     background:linear-gradient(90deg,#a05a90,#e08a6a);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    margin:.2rem 0;
+    -webkit-background-clip:text;background-clip:text;
+    color:#b8628a;-webkit-text-fill-color:transparent;
+    margin:.15rem 0;
   }
 
-  @media (min-width:600px){
-    .scene p{font-size:1.2rem}
-    .cards{max-width:26rem}
+  @media (max-height:640px){
+    .pg p{font-size:.92rem;line-height:1.6}
+    .pg h2{font-size:1.9rem}
+    .art{width:min(48vw,200px)}
   }
 </style>
 </head>
@@ -228,454 +498,603 @@
 
 <div class="bglayer bg-night front" id="bgA"></div>
 <div class="bglayer" id="bgB"></div>
-<div class="blobs"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
 <div id="stars"></div>
 <div id="fireflies"></div>
+<div id="rain"></div>
+<div id="dust"></div>
+<div id="vignette"></div>
 <div id="progress"><div id="progressFill"></div></div>
 
-<main>
+<!-- silueta del caballo, definida una vez y reutilizada -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="horseShape" transform="translate(0,581) scale(0.1,-0.1)">
+      <path d="M5893 5345 c-7 -8 -30 -17 -50 -20 -92 -15 -124 -29 -185 -82 -35 -30 -92 -70 -128 -88 -74 -37 -96 -59 -134 -130 -15 -27 -43 -61 -62 -75 -94 -68 -124 -94 -178 -161 -33 -39 -107 -112 -166 -163 -58 -50 -151 -130 -206 -177 -112 -97 -137 -115 -226 -165 -175 -99 -318 -129 -583 -121 -180 6 -236 14 -485 72 -449 103 -599 89 -970 -91 -74 -36 -157 -70 -185 -75 -62 -11 -130 0 -215 36 -194 82 -408 96 -547 38 -196 -83 -327 -231 -395 -446 -25 -82 -28 -105 -28 -229 0 -135 1 -139 36 -225 20 -48 42 -96 49 -107 8 -12 36 -77 64 -146 60 -148 109 -222 255 -384 74 -83 118 -141 137 -183 16 -35 32 -63 35 -63 4 0 4 26 1 58 l-6 57 19 -55 c22 -66 24 -109 8 -213 -13 -87 -1 -252 28 -362 30 -121 45 -138 75 -87 9 15 37 61 63 103 26 41 57 106 70 143 19 54 25 64 31 47 3 -12 3 -30 0 -41 -3 -11 -2 -20 3 -20 16 0 40 44 64 116 19 57 23 90 22 194 0 129 -7 168 -50 277 l-25 62 21 68 c24 78 29 213 10 283 -18 68 -71 165 -149 275 -39 55 -86 129 -104 165 -30 60 -32 71 -32 170 0 113 7 136 67 213 71 89 181 130 291 107 100 -20 114 -73 54 -198 -49 -101 -63 -188 -48 -289 24 -155 44 -238 111 -464 78 -257 95 -360 87 -499 -15 -229 -99 -407 -250 -525 l-39 -30 -3 -195 c-5 -279 -31 -475 -91 -685 -51 -179 -46 -222 35 -298 46 -42 47 -46 26 -129 -18 -69 -14 -91 28 -135 l31 -33 142 0 c121 0 143 2 148 16 11 27 -63 152 -116 197 -68 58 -79 81 -72 158 5 53 1 75 -20 132 -14 37 -26 83 -26 103 0 87 82 442 130 562 44 110 111 216 200 317 134 152 213 252 265 338 90 146 114 175 232 274 65 54 126 104 137 112 18 14 24 10 75 -46 102 -111 132 -205 134 -418 1 -89 -4 -134 -27 -231 -34 -145 -32 -170 29 -258 45 -67 173 -308 216 -411 14 -33 55 -134 90 -224 81 -207 104 -236 198 -247 57 -6 68 -12 107 -49 42 -40 44 -44 44 -102 0 -103 34 -122 216 -123 104 0 154 7 154 24 0 29 -61 135 -94 164 -20 18 -74 51 -118 73 -141 71 -240 184 -341 391 -60 121 -102 242 -133 381 -21 93 -25 137 -25 254 0 85 7 170 15 210 8 38 24 109 35 159 11 51 29 169 39 263 15 130 23 176 37 191 9 10 20 34 24 52 5 23 13 34 27 36 11 2 67 -16 124 -39 57 -23 156 -53 219 -66 150 -32 373 -33 636 -4 252 28 296 17 342 -87 14 -31 31 -95 39 -142 16 -104 22 -471 10 -675 -5 -96 -5 -188 2 -255 7 -68 7 -148 2 -225 -5 -66 -12 -175 -16 -242 -8 -145 -2 -161 79 -197 79 -35 90 -53 98 -153 6 -72 11 -89 31 -109 44 -45 217 -55 305 -19 30 13 32 16 22 42 -5 16 -24 51 -42 79 -26 39 -48 58 -112 92 -44 23 -88 51 -98 61 -26 25 -77 256 -77 347 0 91 24 260 56 399 15 63 30 163 34 235 10 157 23 219 65 330 19 48 46 128 60 176 42 146 110 309 138 332 19 16 168 33 210 25 18 -3 52 -16 77 -28 104 -52 265 -57 472 -15 122 25 122 25 149 -85 16 -67 16 -83 5 -115 -34 -100 -135 -224 -195 -240 -45 -12 -66 -33 -85 -86 -12 -34 -17 -39 -41 -36 -15 2 -39 11 -53 20 -17 11 -46 16 -94 16 -61 -1 -72 -4 -97 -28 -63 -61 -100 -185 -65 -220 14 -14 27 -17 64 -12 89 12 160 36 215 72 46 31 67 38 134 44 117 12 132 24 205 163 53 101 101 174 176 267 76 94 83 116 81 245 -2 120 -12 180 -34 202 -8 8 -54 21 -103 30 -84 14 -136 32 -261 88 -57 27 -137 50 -200 60 -23 4 -46 12 -52 19 -21 25 -33 148 -20 214 14 79 9 115 -32 200 -51 104 -51 165 -1 328 52 170 62 244 62 483 0 109 3 213 6 231 15 70 116 134 178 110 l26 -9 -22 -58 c-26 -70 -26 -136 1 -206 32 -86 64 -254 59 -311 -3 -34 -13 -65 -31 -91 -33 -49 -33 -62 -3 -122 13 -27 32 -66 42 -88 23 -48 75 -85 121 -85 31 0 99 22 163 54 18 8 31 29 46 76 19 58 87 226 170 424 20 47 49 90 89 134 l60 65 0 64 c0 63 0 64 48 107 26 24 47 53 47 64 0 16 8 20 48 24 30 3 67 17 101 38 54 33 54 33 32 51 l-21 17 30 22 c50 36 40 50 -36 50 -38 0 -79 6 -98 15 -40 19 -206 152 -206 166 0 5 -44 56 -97 111 -90 93 -107 105 -200 150 -56 26 -111 48 -123 48 -11 0 -48 12 -83 26 -34 14 -80 27 -102 29 -22 1 -69 7 -105 14 -36 6 -155 11 -265 10 -160 0 -203 -3 -212 -14z"/>
+    </g>
+    <g id="cornerOrn">
+      <path d="M2,32 C2,14 14,2 32,2 M6,32 C6,17 17,6 32,6 M2,20 C8,20 12,16 12,10" stroke="#d4a95c" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </g>
+    <g id="divider">
+      <path d="M5,7 L40,7 M70,7 L105,7" stroke="#8a6a45" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M55,2 L58,7 L55,12 L52,7 Z" fill="#8a6a45"/>
+      <circle cx="46" cy="7" r="1.5" fill="#8a6a45"/>
+      <circle cx="64" cy="7" r="1.5" fill="#8a6a45"/>
+    </g>
+  </defs>
+</svg>
 
-<!-- ========== 1 · PORTADA ========== -->
-<section class="scene active" data-bg="night" data-ink="light" data-stars="1">
-  <div class="wrap">
-    <svg class="art float rev" style="--d:.2s" viewBox="0 0 200 180" aria-hidden="true">
-      <circle cx="100" cy="86" r="46" fill="#fdf6ec" opacity=".95"/>
-      <circle cx="100" cy="86" r="62" fill="#fdf6ec" opacity=".16"/>
-      <circle cx="86" cy="76" r="7" fill="#e6dbc4" opacity=".5"/>
-      <circle cx="114" cy="98" r="9" fill="#e6dbc4" opacity=".45"/>
-      <circle cx="110" cy="70" r="4" fill="#e6dbc4" opacity=".4"/>
-      <g fill="#fdf6ec">
-        <path d="M38,44 l3,10 10,3 -10,3 -3,10 -3,-10 -10,-3 10,-3 Z" opacity=".92"/>
-        <path d="M162,54 l2,7 7,2 -7,2 -2,7 -2,-7 -7,-2 7,-2 Z" opacity=".82"/>
-        <path d="M150,138 l2,7 7,2 -7,2 -2,7 -2,-7 -7,-2 7,-2 Z" opacity=".75"/>
-      </g>
-    </svg>
-    <h1 class="rev" style="--d:.7s">Para Priscila ✨</h1>
-    <p class="sub rev" style="--d:1.2s">una pequeña historia, hecha con mucho cariño</p>
-    <button class="btn pulse next rev" style="--d:1.8s">Toca para comenzar</button>
-  </div>
-</section>
+<div id="stage">
+  <div id="book">
+    <div id="spine"></div>
 
-<!-- ========== 2 · EL CAMINO ========== -->
-<section class="scene" data-bg="dawn" data-ink="dark">
-  <div class="wrap">
-    <svg class="art rev" style="--d:.2s" viewBox="0 0 300 150" aria-hidden="true">
-      <circle cx="60" cy="46" r="20" fill="#fff3d6" opacity=".9"/>
-      <circle cx="60" cy="46" r="30" fill="#fff3d6" opacity=".28"/>
-      <path d="M0,150 L0,96 C40,66 78,58 112,84 C150,112 190,96 230,72 C256,58 282,58 300,70 L300,150 Z" fill="#8a6ea8" opacity=".55"/>
-      <path d="M0,150 L0,116 C50,92 96,96 138,116 C180,136 226,124 268,104 C280,99 292,98 300,102 L300,150 Z" fill="#6e5490" opacity=".7"/>
-      <path d="M0,150 L0,134 C60,118 130,126 180,140 C220,150 268,144 300,132 L300,150 Z" fill="#54406e"/>
-      <path d="M138,30 q6,-7 12,0 M154,36 q5,-6 10,0" stroke="#54406e" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
-    </svg>
-    <p class="rev" style="--d:.5s">Hay historias que comienzan en caminos sencillos…</p>
-    <p class="rev" style="--d:1.5s">Entre montañas verdes, clima frío y ese camino que lleva hacia Chichicastenango.</p>
-    <p class="rev" style="--d:2.6s">Esta es una de esas historias. ✨</p>
-    <button class="btn next rev" style="--d:3.6s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 3 · PUEBLO REAL ========== -->
-<section class="scene" data-bg="meadow" data-ink="dark" data-glow="1">
-  <div class="wrap">
-    <svg class="art rev" style="--d:.2s" viewBox="0 0 860 581" aria-hidden="true">
-      <circle cx="430" cy="300" r="330" fill="#fff" opacity=".3"/>
-      <g transform="translate(0,581) scale(0.1,-0.1)" fill="#22202a">
-        <path d="M5893 5345 c-7 -8 -30 -17 -50 -20 -92 -15 -124 -29 -185 -82 -35 -30 -92 -70 -128 -88 -74 -37 -96 -59 -134 -130 -15 -27 -43 -61 -62 -75 -94 -68 -124 -94 -178 -161 -33 -39 -107 -112 -166 -163 -58 -50 -151 -130 -206 -177 -112 -97 -137 -115 -226 -165 -175 -99 -318 -129 -583 -121 -180 6 -236 14 -485 72 -449 103 -599 89 -970 -91 -74 -36 -157 -70 -185 -75 -62 -11 -130 0 -215 36 -194 82 -408 96 -547 38 -196 -83 -327 -231 -395 -446 -25 -82 -28 -105 -28 -229 0 -135 1 -139 36 -225 20 -48 42 -96 49 -107 8 -12 36 -77 64 -146 60 -148 109 -222 255 -384 74 -83 118 -141 137 -183 16 -35 32 -63 35 -63 4 0 4 26 1 58 l-6 57 19 -55 c22 -66 24 -109 8 -213 -13 -87 -1 -252 28 -362 30 -121 45 -138 75 -87 9 15 37 61 63 103 26 41 57 106 70 143 19 54 25 64 31 47 3 -12 3 -30 0 -41 -3 -11 -2 -20 3 -20 16 0 40 44 64 116 19 57 23 90 22 194 0 129 -7 168 -50 277 l-25 62 21 68 c24 78 29 213 10 283 -18 68 -71 165 -149 275 -39 55 -86 129 -104 165 -30 60 -32 71 -32 170 0 113 7 136 67 213 71 89 181 130 291 107 100 -20 114 -73 54 -198 -49 -101 -63 -188 -48 -289 24 -155 44 -238 111 -464 78 -257 95 -360 87 -499 -15 -229 -99 -407 -250 -525 l-39 -30 -3 -195 c-5 -279 -31 -475 -91 -685 -51 -179 -46 -222 35 -298 46 -42 47 -46 26 -129 -18 -69 -14 -91 28 -135 l31 -33 142 0 c121 0 143 2 148 16 11 27 -63 152 -116 197 -68 58 -79 81 -72 158 5 53 1 75 -20 132 -14 37 -26 83 -26 103 0 87 82 442 130 562 44 110 111 216 200 317 134 152 213 252 265 338 90 146 114 175 232 274 65 54 126 104 137 112 18 14 24 10 75 -46 102 -111 132 -205 134 -418 1 -89 -4 -134 -27 -231 -34 -145 -32 -170 29 -258 45 -67 173 -308 216 -411 14 -33 55 -134 90 -224 81 -207 104 -236 198 -247 57 -6 68 -12 107 -49 42 -40 44 -44 44 -102 0 -103 34 -122 216 -123 104 0 154 7 154 24 0 29 -61 135 -94 164 -20 18 -74 51 -118 73 -141 71 -240 184 -341 391 -60 121 -102 242 -133 381 -21 93 -25 137 -25 254 0 85 7 170 15 210 8 38 24 109 35 159 11 51 29 169 39 263 15 130 23 176 37 191 9 10 20 34 24 52 5 23 13 34 27 36 11 2 67 -16 124 -39 57 -23 156 -53 219 -66 150 -32 373 -33 636 -4 252 28 296 17 342 -87 14 -31 31 -95 39 -142 16 -104 22 -471 10 -675 -5 -96 -5 -188 2 -255 7 -68 7 -148 2 -225 -5 -66 -12 -175 -16 -242 -8 -145 -2 -161 79 -197 79 -35 90 -53 98 -153 6 -72 11 -89 31 -109 44 -45 217 -55 305 -19 30 13 32 16 22 42 -5 16 -24 51 -42 79 -26 39 -48 58 -112 92 -44 23 -88 51 -98 61 -26 25 -77 256 -77 347 0 91 24 260 56 399 15 63 30 163 34 235 10 157 23 219 65 330 19 48 46 128 60 176 42 146 110 309 138 332 19 16 168 33 210 25 18 -3 52 -16 77 -28 104 -52 265 -57 472 -15 122 25 122 25 149 -85 16 -67 16 -83 5 -115 -34 -100 -135 -224 -195 -240 -45 -12 -66 -33 -85 -86 -12 -34 -17 -39 -41 -36 -15 2 -39 11 -53 20 -17 11 -46 16 -94 16 -61 -1 -72 -4 -97 -28 -63 -61 -100 -185 -65 -220 14 -14 27 -17 64 -12 89 12 160 36 215 72 46 31 67 38 134 44 117 12 132 24 205 163 53 101 101 174 176 267 76 94 83 116 81 245 -2 120 -12 180 -34 202 -8 8 -54 21 -103 30 -84 14 -136 32 -261 88 -57 27 -137 50 -200 60 -23 4 -46 12 -52 19 -21 25 -33 148 -20 214 14 79 9 115 -32 200 -51 104 -51 165 -1 328 52 170 62 244 62 483 0 109 3 213 6 231 15 70 116 134 178 110 l26 -9 -22 -58 c-26 -70 -26 -136 1 -206 32 -86 64 -254 59 -311 -3 -34 -13 -65 -31 -91 -33 -49 -33 -62 -3 -122 13 -27 32 -66 42 -88 23 -48 75 -85 121 -85 31 0 99 22 163 54 18 8 31 29 46 76 19 58 87 226 170 424 20 47 49 90 89 134 l60 65 0 64 c0 63 0 64 48 107 26 24 47 53 47 64 0 16 8 20 48 24 30 3 67 17 101 38 54 33 54 33 32 51 l-21 17 30 22 c50 36 40 50 -36 50 -38 0 -79 6 -98 15 -40 19 -206 152 -206 166 0 5 -44 56 -97 111 -90 93 -107 105 -200 150 -56 26 -111 48 -123 48 -11 0 -48 12 -83 26 -34 14 -80 27 -102 29 -22 1 -69 7 -105 14 -36 6 -155 11 -265 10 -160 0 -203 -3 -212 -14z"/>
-      </g>
-    </svg>
-    <p class="rev" style="--d:.5s">En un lugar llamado <strong>Pueblo Real</strong>, entre todos los caballos, había uno distinto.</p>
-    <p class="rev" style="--d:1.6s">Negro, elegante, con ese algo especial que no se puede explicar.</p>
-    <p class="rev" style="--d:2.7s">Se llamaba <strong>Pegaso</strong>.</p>
-    <p class="rev" style="--d:3.7s">Y un día, una chica se subió a él… y quedó fascinada. 🐎</p>
-    <button class="btn next rev" style="--d:4.8s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 4 · LAS ALAS ========== -->
-<section class="scene" data-bg="sky" data-ink="dark">
-  <div class="wrap">
-    <svg class="art rev" style="--d:.2s" viewBox="0 0 860 581" aria-hidden="true">
-      <g transform="translate(0,581) scale(0.1,-0.1)" fill="#22202a">
-        <path d="M5893 5345 c-7 -8 -30 -17 -50 -20 -92 -15 -124 -29 -185 -82 -35 -30 -92 -70 -128 -88 -74 -37 -96 -59 -134 -130 -15 -27 -43 -61 -62 -75 -94 -68 -124 -94 -178 -161 -33 -39 -107 -112 -166 -163 -58 -50 -151 -130 -206 -177 -112 -97 -137 -115 -226 -165 -175 -99 -318 -129 -583 -121 -180 6 -236 14 -485 72 -449 103 -599 89 -970 -91 -74 -36 -157 -70 -185 -75 -62 -11 -130 0 -215 36 -194 82 -408 96 -547 38 -196 -83 -327 -231 -395 -446 -25 -82 -28 -105 -28 -229 0 -135 1 -139 36 -225 20 -48 42 -96 49 -107 8 -12 36 -77 64 -146 60 -148 109 -222 255 -384 74 -83 118 -141 137 -183 16 -35 32 -63 35 -63 4 0 4 26 1 58 l-6 57 19 -55 c22 -66 24 -109 8 -213 -13 -87 -1 -252 28 -362 30 -121 45 -138 75 -87 9 15 37 61 63 103 26 41 57 106 70 143 19 54 25 64 31 47 3 -12 3 -30 0 -41 -3 -11 -2 -20 3 -20 16 0 40 44 64 116 19 57 23 90 22 194 0 129 -7 168 -50 277 l-25 62 21 68 c24 78 29 213 10 283 -18 68 -71 165 -149 275 -39 55 -86 129 -104 165 -30 60 -32 71 -32 170 0 113 7 136 67 213 71 89 181 130 291 107 100 -20 114 -73 54 -198 -49 -101 -63 -188 -48 -289 24 -155 44 -238 111 -464 78 -257 95 -360 87 -499 -15 -229 -99 -407 -250 -525 l-39 -30 -3 -195 c-5 -279 -31 -475 -91 -685 -51 -179 -46 -222 35 -298 46 -42 47 -46 26 -129 -18 -69 -14 -91 28 -135 l31 -33 142 0 c121 0 143 2 148 16 11 27 -63 152 -116 197 -68 58 -79 81 -72 158 5 53 1 75 -20 132 -14 37 -26 83 -26 103 0 87 82 442 130 562 44 110 111 216 200 317 134 152 213 252 265 338 90 146 114 175 232 274 65 54 126 104 137 112 18 14 24 10 75 -46 102 -111 132 -205 134 -418 1 -89 -4 -134 -27 -231 -34 -145 -32 -170 29 -258 45 -67 173 -308 216 -411 14 -33 55 -134 90 -224 81 -207 104 -236 198 -247 57 -6 68 -12 107 -49 42 -40 44 -44 44 -102 0 -103 34 -122 216 -123 104 0 154 7 154 24 0 29 -61 135 -94 164 -20 18 -74 51 -118 73 -141 71 -240 184 -341 391 -60 121 -102 242 -133 381 -21 93 -25 137 -25 254 0 85 7 170 15 210 8 38 24 109 35 159 11 51 29 169 39 263 15 130 23 176 37 191 9 10 20 34 24 52 5 23 13 34 27 36 11 2 67 -16 124 -39 57 -23 156 -53 219 -66 150 -32 373 -33 636 -4 252 28 296 17 342 -87 14 -31 31 -95 39 -142 16 -104 22 -471 10 -675 -5 -96 -5 -188 2 -255 7 -68 7 -148 2 -225 -5 -66 -12 -175 -16 -242 -8 -145 -2 -161 79 -197 79 -35 90 -53 98 -153 6 -72 11 -89 31 -109 44 -45 217 -55 305 -19 30 13 32 16 22 42 -5 16 -24 51 -42 79 -26 39 -48 58 -112 92 -44 23 -88 51 -98 61 -26 25 -77 256 -77 347 0 91 24 260 56 399 15 63 30 163 34 235 10 157 23 219 65 330 19 48 46 128 60 176 42 146 110 309 138 332 19 16 168 33 210 25 18 -3 52 -16 77 -28 104 -52 265 -57 472 -15 122 25 122 25 149 -85 16 -67 16 -83 5 -115 -34 -100 -135 -224 -195 -240 -45 -12 -66 -33 -85 -86 -12 -34 -17 -39 -41 -36 -15 2 -39 11 -53 20 -17 11 -46 16 -94 16 -61 -1 -72 -4 -97 -28 -63 -61 -100 -185 -65 -220 14 -14 27 -17 64 -12 89 12 160 36 215 72 46 31 67 38 134 44 117 12 132 24 205 163 53 101 101 174 176 267 76 94 83 116 81 245 -2 120 -12 180 -34 202 -8 8 -54 21 -103 30 -84 14 -136 32 -261 88 -57 27 -137 50 -200 60 -23 4 -46 12 -52 19 -21 25 -33 148 -20 214 14 79 9 115 -32 200 -51 104 -51 165 -1 328 52 170 62 244 62 483 0 109 3 213 6 231 15 70 116 134 178 110 l26 -9 -22 -58 c-26 -70 -26 -136 1 -206 32 -86 64 -254 59 -311 -3 -34 -13 -65 -31 -91 -33 -49 -33 -62 -3 -122 13 -27 32 -66 42 -88 23 -48 75 -85 121 -85 31 0 99 22 163 54 18 8 31 29 46 76 19 58 87 226 170 424 20 47 49 90 89 134 l60 65 0 64 c0 63 0 64 48 107 26 24 47 53 47 64 0 16 8 20 48 24 30 3 67 17 101 38 54 33 54 33 32 51 l-21 17 30 22 c50 36 40 50 -36 50 -38 0 -79 6 -98 15 -40 19 -206 152 -206 166 0 5 -44 56 -97 111 -90 93 -107 105 -200 150 -56 26 -111 48 -123 48 -11 0 -48 12 -83 26 -34 14 -80 27 -102 29 -22 1 -69 7 -105 14 -36 6 -155 11 -265 10 -160 0 -203 -3 -212 -14z"/>
-      </g>
-    </svg>
-    <p class="rev" style="--d:.5s">Dicen que a esa chica le dan miedo las alturas…</p>
-    <p class="rev" style="--d:1.6s">Pero hay una forma de volar que no da nada de miedo:</p>
-    <p class="rev" style="--d:2.7s"><strong>la de soñar en grande y luchar por lo que uno quiere.</strong></p>
-    <p class="rev" style="--d:3.9s">Y para ese tipo de vuelos, ella nació con alas.</p>
-    <button class="btn next rev" style="--d:5s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 5 · CONSTELACIÓN ========== -->
-<section class="scene" data-bg="night" data-ink="light" data-stars="1">
-  <div class="wrap">
-    <h2 class="rev" style="--d:.2s">Toca cada estrella ⭐</h2>
-    <svg id="constel" class="art rev" style="--d:.6s" viewBox="0 0 300 240" aria-hidden="true">
-      <path class="cline" d="M38,178 L92,158 L148,162 L204,176"/>
-      <path class="cline" d="M148,162 L150,104 L196,72 L246,48"/>
-      <g class="cstar" data-star="0" transform="translate(38,178)"><circle r="26" fill="transparent"/><circle class="halo" r="17"/><circle class="core" r="5"/></g>
-      <g class="cstar" data-star="1" transform="translate(92,158)"><circle r="26" fill="transparent"/><circle class="halo" r="17"/><circle class="core" r="5.5"/></g>
-      <g class="cstar" data-star="2" transform="translate(148,162)"><circle r="26" fill="transparent"/><circle class="halo" r="17"/><circle class="core" r="6"/></g>
-      <g class="cstar" data-star="3" transform="translate(204,176)"><circle r="26" fill="transparent"/><circle class="halo" r="17"/><circle class="core" r="5"/></g>
-      <g class="cstar" data-star="4" transform="translate(150,104)"><circle r="26" fill="transparent"/><circle class="halo" r="17"/><circle class="core" r="5.5"/></g>
-      <g class="cstar" data-star="5" transform="translate(196,72)"><circle r="26" fill="transparent"/><circle class="halo" r="17"/><circle class="core" r="5"/></g>
-      <g class="cstar" data-star="6" transform="translate(246,48)"><circle r="26" fill="transparent"/><circle class="halo" r="17"/><circle class="core" r="6"/></g>
-    </svg>
-    <div id="starMsg"><span class="sub">cada una guarda algo…</span></div>
-    <div id="starCount">0 de 7</div>
-    <div id="s5end" class="hidden">
-      <p>Si sus logros fueran estrellas, el cielo ya tendría una constelación nueva…</p>
-      <p>y sería la más brillante de todas ✨</p>
-      <button class="btn next">Continuar</button>
+    <!-- ================= HOJA 13 · CIERRE (al fondo) ================= -->
+    <div class="sheet" data-bg="fiesta" data-glow="1" style="z-index:1">
+      <div class="face front paper">
+        <div class="confetti" aria-hidden="true"></div>
+        <div class="pg">
+          <h2 class="rev" style="--d:.3s;font-size:2.5rem"><span class="ink">Feliz cumpleaños,<br>Priscila ✨</span></h2>
+          <div class="orna rev" style="--d:1.2s"><svg viewBox="0 0 110 14"><use href="#divider"/></svg></div>
+          <p class="rev" style="--d:1.5s">Gracias por ser como eres: una chica increíble, fuerte, dedicada y de gran corazón.</p>
+          <p class="rev" style="--d:2.7s"><strong>Te quiero mucho. 🫂</strong></p>
+          <p class="rev" style="--d:3.8s">Esto fue hecho con tiempo, cariño y dedicación… porque te lo mereces.</p>
+          <div class="firma rev" style="--d:4.9s">— Enrique</div>
+          <button disabled id="restart" class="btn rev" style="--d:5.9s">Volver a leerla ↺</button>
+          <div class="pnum">· fin ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
     </div>
-  </div>
-</section>
 
-<!-- ========== 6 · SUS MANOS ========== -->
-<section class="scene" data-bg="teal" data-ink="dark">
-  <div class="wrap">
-    <svg class="art art-sm rev" style="--d:.2s" viewBox="0 0 100 90" aria-hidden="true">
-      <circle cx="50" cy="42" r="34" fill="none" stroke="#fff" stroke-width="1.5" opacity=".55">
-        <animate attributeName="r" values="30;44" dur="2.6s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values=".6;0" dur="2.6s" repeatCount="indefinite"/>
-      </circle>
-      <path class="beat" d="M50,30 C50,21 62,14 71,22 C80,30 76,44 50,63 C24,44 20,30 29,22 C38,14 50,21 50,30 Z"
-            fill="#e0708a"/>
-    </svg>
-    <p class="rev" style="--d:.5s">Hay personas que eligieron ayudar a los demás como forma de vida.</p>
-    <p class="rev" style="--d:1.6s"><strong>Ella es de esas.</strong></p>
-    <p class="rev" style="--d:2.6s">Sus pacientes llegan con dolor… y se van con esperanza.</p>
-    <p class="rev" style="--d:3.7s">Eso no lo enseña ninguna universidad: eso ya venía en ella. 🤍</p>
-    <button class="btn next rev" style="--d:4.8s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 7 · LOS SUYOS ========== -->
-<section class="scene" data-bg="rose" data-ink="dark" data-glow="1">
-  <div class="wrap">
-    <div class="rev" style="--d:.2s;font-size:2.4rem;letter-spacing:.35em">🐾 🏡 🐾</div>
-    <p class="rev" style="--d:.6s">Y no solo con sus pacientes.</p>
-    <p class="rev" style="--d:1.6s">Con su familia, con su hermanito, con los shiquis… 🐾</p>
-    <p class="rev" style="--d:2.7s">Cuida a los suyos con una dedicación que no se ve todos los días.</p>
-    <p class="rev" style="--d:3.8s"><strong>Tiene uno de los corazones más nobles que conozco.</strong> 🤍</p>
-    <button class="btn next rev" style="--d:4.9s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 8 · CAFÉ ========== -->
-<section class="scene" data-bg="coffee" data-ink="light">
-  <div class="rain" aria-hidden="true"></div>
-  <div class="wrap">
-    <svg class="art art-sm rev" style="--d:.2s" viewBox="0 0 220 170" aria-hidden="true">
-      <g stroke="#f0e6d8" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".85">
-        <path d="M84,66 C79,56 88,48 83,38">
-          <animate attributeName="opacity" values=".2;.85;.2" dur="2.8s" repeatCount="indefinite"/>
-          <animateTransform attributeName="transform" type="translate" values="0 0;0 -7;0 0" dur="2.8s" repeatCount="indefinite"/>
-        </path>
-        <path d="M102,64 C97,52 106,46 101,34">
-          <animate attributeName="opacity" values=".85;.2;.85" dur="3.4s" repeatCount="indefinite"/>
-          <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="3.4s" repeatCount="indefinite"/>
-        </path>
-        <path d="M119,66 C114,56 123,48 118,38">
-          <animate attributeName="opacity" values=".4;.85;.4" dur="3s" repeatCount="indefinite"/>
-          <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="3s" repeatCount="indefinite"/>
-        </path>
-      </g>
-      <ellipse cx="100" cy="152" rx="72" ry="11" fill="#fff" opacity=".4"/>
-      <path d="M55,88 L145,88 C145,120 132,144 100,144 C68,144 55,120 55,88 Z" fill="#fdf6ec"/>
-      <ellipse cx="100" cy="89" rx="45" ry="8" fill="#5a3d2e"/>
-      <path d="M145,96 C167,94 170,122 146,127" stroke="#fdf6ec" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M158,132 A20,20 0 0,1 198,132 Z" fill="#e0a86a"/>
-      <path d="M166,132 A14,14 0 0,1 172,120 M178,116 A14,14 0 0,1 190,126" stroke="#b57e42" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    </svg>
-    <p class="rev" style="--d:.5s">Claro, hasta los corazones más fuertes necesitan sus momentos de paz.</p>
-    <p class="rev" style="--d:1.6s">Un clima frío. Una taza de café de grano <em>—sin azúcar, por supuesto—</em>.</p>
-    <p class="rev" style="--d:2.8s">Y un pan dulce para acompañar. ☕</p>
-    <p class="rev" style="--d:3.8s">Porque los pequeños placeres también son felicidad.</p>
-    <button class="btn next rev" style="--d:4.9s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 9 · COSAS QUE TE HACEN SER TÚ ========== -->
-<section class="scene" data-bg="cream" data-ink="dark">
-  <div class="wrap">
-    <h2 class="rev" style="--d:.2s">Cosas que te hacen ser tú</h2>
-    <p class="sub rev" style="--d:.5s">(toca cada una 👆)</p>
-    <div class="cards rev" style="--d:.8s">
-      <button class="card" data-msg="El campeón indiscutible 🏆"><em>🍦</em>Helado de galleta Oreo</button>
-      <button class="card" data-msg="Para los días que merecen algo especial ✨"><em>🍨</em>Tiramisú</button>
-      <button class="card" data-msg="Ácidas por fuera, dulces por dentro… igual que alguien que conozco 🤭"><em>🍬</em>Tiras ácidas</button>
-      <button class="card" data-msg="Pero del bueno. Del que sí asusta 👻"><em>🎬</em>Terror</button>
-      <button class="card" data-msg="Paciencia, precisión y estrategia. Muy tu estilo ⚾"><em>⚾</em>Béisbol</button>
-      <button class="card" data-msg="En segundo lugar solo porque el café va primero 🤎"><em>🍫</em>Chocolate</button>
-      <button class="card" data-msg="Sin azúcar, para sentir el sabor de verdad ☕"><em>☕</em>Café de grano</button>
-      <button class="card no" data-msg="Jamás. Ni intentarlo 🚫😄"><em>🍕</em>Pizza</button>
-      <button class="card no" data-msg="Tampoco. Eso ya quedó claro 🚫"><em>🍲</em>Birria</button>
+    <!-- ================= HOJA 12 · VELITAS ================= -->
+    <div class="sheet" data-bg="dusk" style="z-index:2">
+      <div class="face front paper">
+        <div class="pg">
+          <h2 class="rev" style="--d:.2s"><span class="ink">Hoy es tu día 🎂</span></h2>
+          <p class="peq rev" style="--d:.5s">sopla las velitas… (tócalas una por una)</p>
+          <div class="cakebox rev" style="--d:.8s" id="cakebox">
+            <div class="cakeglow"></div>
+            <svg id="cake" class="art" style="width:min(52vw,210px)" viewBox="0 0 260 210" aria-hidden="true">
+              <ellipse cx="130" cy="192" rx="98" ry="12" fill="#8a6a45" opacity=".18"/>
+              <rect x="55" y="140" width="150" height="48" rx="12" fill="#e8a3b8"/>
+              <path d="M55,148 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 l0,-10 l-144,0 Z" fill="#f8dae4"/>
+              <rect x="77" y="104" width="106" height="40" rx="10" fill="#f5c9d8"/>
+              <path d="M77,111 q8,9 16,0 q8,9 16,0 q8,9 16,0 q8,9 16,0 q8,9 16,0 q8,9 16,0 l0,-9 l-96,0 Z" fill="#fdeef3"/>
+              <ellipse cx="130" cy="104" rx="53" ry="9" fill="#fdeef3"/>
+              <g class="candle" data-candle="0">
+                <rect x="-15" y="30" width="30" height="76" fill="transparent" transform="translate(90,0)"/>
+                <rect x="87" y="70" width="7" height="32" rx="3" fill="#a8d8d0"/>
+                <line x1="90.5" y1="70" x2="90.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
+                <path class="flame" d="M90.5,64 C94,58 94,52 90.5,47 C87,52 87,58 90.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
+                <path class="smoke" d="M90.5,60 C88,54 93,50 90.5,44"/>
+              </g>
+              <g class="candle" data-candle="1">
+                <rect x="-15" y="30" width="30" height="76" fill="transparent" transform="translate(110,0)"/>
+                <rect x="107" y="70" width="7" height="32" rx="3" fill="#f0b8c8"/>
+                <line x1="110.5" y1="70" x2="110.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
+                <path class="flame" d="M110.5,64 C114,58 114,52 110.5,47 C107,52 107,58 110.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
+                <path class="smoke" d="M110.5,60 C108,54 113,50 110.5,44"/>
+              </g>
+              <g class="candle" data-candle="2">
+                <rect x="-15" y="30" width="30" height="76" fill="transparent" transform="translate(130,0)"/>
+                <rect x="127" y="70" width="7" height="32" rx="3" fill="#f5e3a8"/>
+                <line x1="130.5" y1="70" x2="130.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
+                <path class="flame" d="M130.5,64 C134,58 134,52 130.5,47 C127,52 127,58 130.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
+                <path class="smoke" d="M130.5,60 C128,54 133,50 130.5,44"/>
+              </g>
+              <g class="candle" data-candle="3">
+                <rect x="-15" y="30" width="30" height="76" fill="transparent" transform="translate(150,0)"/>
+                <rect x="147" y="70" width="7" height="32" rx="3" fill="#c9b8ee"/>
+                <line x1="150.5" y1="70" x2="150.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
+                <path class="flame" d="M150.5,64 C154,58 154,52 150.5,47 C147,52 147,58 150.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
+                <path class="smoke" d="M150.5,60 C148,54 153,50 150.5,44"/>
+              </g>
+              <g class="candle" data-candle="4">
+                <rect x="-15" y="30" width="30" height="76" fill="transparent" transform="translate(170,0)"/>
+                <rect x="167" y="70" width="7" height="32" rx="3" fill="#a8c9e8"/>
+                <line x1="170.5" y1="70" x2="170.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
+                <path class="flame" d="M170.5,64 C174,58 174,52 170.5,47 C167,52 167,58 170.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
+                <path class="smoke" d="M170.5,60 C168,54 173,50 170.5,44"/>
+              </g>
+            </svg>
+          </div>
+          <div id="wish">
+            <p>Mi deseo ya lo pedí por ti:</p>
+            <p><strong>que logres todo, todo lo que te propongas.</strong></p>
+            <p>Que la vida te devuelva aunque sea la mitad de lo que tú das.</p>
+            <p>Y que nunca dejes de volar alto. 🌟</p>
+            <button disabled class="btn next">Continuar</button>
+          </div>
+          <div class="pnum">· 12 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
     </div>
-    <div id="cardMsg"><span class="sub">…</span></div>
-    <button id="s9btn" class="btn next hidden">Continuar</button>
-  </div>
-</section>
 
-<!-- ========== 10 · LINDA ========== -->
-<section class="scene" data-bg="lilac" data-ink="dark">
-  <div class="wrap">
-    <p class="rev" style="--d:.3s">Un pequeño detalle más…</p>
-    <p class="rev" style="--d:1.3s">Hay gente que pasa años buscando la palabra perfecta para describir a alguien.</p>
-    <p class="rev" style="--d:2.5s">Tus papás la encontraron desde el primer día:</p>
-    <div class="linda rev" style="--d:3.7s">Linda</div>
-    <p class="rev" style="--d:4.7s">No pudieron elegir mejor. ✨</p>
-    <button class="btn next rev" style="--d:5.7s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 11 · LA FRASE ========== -->
-<section class="scene" data-bg="sunset" data-ink="light">
-  <div class="wrap">
-    <p class="rev" style="--d:.3s">Y hay algo que es verdad, y que una vez te dije:</p>
-    <div class="quote rev" style="--d:1.4s">
-      <span class="qmark">“</span>
-      Por ti le agarré cariño a los caballos.<br>
-      Ahora, en automático, miro un caballito…<br>
-      y me acuerdo de ti. 🫂
+    <!-- ================= HOJA 11 · EL SUEÑO ================= -->
+    <div class="sheet" data-bg="gold" data-glow="1" style="z-index:3">
+      <div class="face front paper">
+        <div class="pg">
+          <div class="wash rev" style="--d:.2s;--wash:radial-gradient(circle,rgba(240,200,110,.55),transparent 70%)">
+            <svg class="art float" viewBox="0 0 860 581" aria-hidden="true">
+              <g class="rays" opacity=".5">
+                <g transform="translate(660,140)" stroke="#e8b45c" stroke-width="6" stroke-linecap="round">
+                  <line x1="0" y1="-150" x2="0" y2="-190"/><line x1="106" y1="-106" x2="134" y2="-134"/>
+                  <line x1="150" y1="0" x2="190" y2="0"/><line x1="106" y1="106" x2="134" y2="134"/>
+                  <line x1="0" y1="150" x2="0" y2="190"/><line x1="-106" y1="106" x2="-134" y2="134"/>
+                  <line x1="-150" y1="0" x2="-190" y2="0"/><line x1="-106" y1="-106" x2="-134" y2="-134"/>
+                </g>
+              </g>
+              <circle cx="660" cy="140" r="115" fill="#f5d488" opacity=".95"/>
+              <circle cx="660" cy="140" r="150" fill="#f5d488" opacity=".3"/>
+              <use href="#horseShape" fill="#5a3a28"/>
+            </svg>
+          </div>
+          <p class="rev" style="--d:.5s">Algún día vas a tener tu propio caballo. De eso no tengo ninguna duda.</p>
+          <p class="rev" style="--d:1.7s">Porque la gente que trabaja tan duro como tú, tarde o temprano, alcanza sus sueños.</p>
+          <p class="rev" style="--d:2.9s">Y ese día lo vas a disfrutar tanto como te lo mereces. ✨</p>
+          <button disabled class="btn next rev" style="--d:4.1s">Continuar</button>
+          <div class="pnum">· 11 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
     </div>
-    <p class="rev" style="--d:3.2s">Hay personas así: que convierten cosas normales en cosas especiales.</p>
-    <button class="btn next rev" style="--d:4.4s">Continuar</button>
-  </div>
-</section>
 
-<!-- ========== 12 · EL SUEÑO ========== -->
-<section class="scene" data-bg="gold" data-ink="dark" data-glow="1">
-  <div class="wrap">
-    <svg class="art float rev" style="--d:.2s" viewBox="0 0 860 581" aria-hidden="true">
-      <circle cx="670" cy="150" r="120" fill="#fff3c9" opacity=".9"/>
-      <circle cx="670" cy="150" r="185" fill="#fff3c9" opacity=".3"/>
-      <g transform="translate(0,581) scale(0.1,-0.1)" fill="#4a3350">
-        <path d="M5893 5345 c-7 -8 -30 -17 -50 -20 -92 -15 -124 -29 -185 -82 -35 -30 -92 -70 -128 -88 -74 -37 -96 -59 -134 -130 -15 -27 -43 -61 -62 -75 -94 -68 -124 -94 -178 -161 -33 -39 -107 -112 -166 -163 -58 -50 -151 -130 -206 -177 -112 -97 -137 -115 -226 -165 -175 -99 -318 -129 -583 -121 -180 6 -236 14 -485 72 -449 103 -599 89 -970 -91 -74 -36 -157 -70 -185 -75 -62 -11 -130 0 -215 36 -194 82 -408 96 -547 38 -196 -83 -327 -231 -395 -446 -25 -82 -28 -105 -28 -229 0 -135 1 -139 36 -225 20 -48 42 -96 49 -107 8 -12 36 -77 64 -146 60 -148 109 -222 255 -384 74 -83 118 -141 137 -183 16 -35 32 -63 35 -63 4 0 4 26 1 58 l-6 57 19 -55 c22 -66 24 -109 8 -213 -13 -87 -1 -252 28 -362 30 -121 45 -138 75 -87 9 15 37 61 63 103 26 41 57 106 70 143 19 54 25 64 31 47 3 -12 3 -30 0 -41 -3 -11 -2 -20 3 -20 16 0 40 44 64 116 19 57 23 90 22 194 0 129 -7 168 -50 277 l-25 62 21 68 c24 78 29 213 10 283 -18 68 -71 165 -149 275 -39 55 -86 129 -104 165 -30 60 -32 71 -32 170 0 113 7 136 67 213 71 89 181 130 291 107 100 -20 114 -73 54 -198 -49 -101 -63 -188 -48 -289 24 -155 44 -238 111 -464 78 -257 95 -360 87 -499 -15 -229 -99 -407 -250 -525 l-39 -30 -3 -195 c-5 -279 -31 -475 -91 -685 -51 -179 -46 -222 35 -298 46 -42 47 -46 26 -129 -18 -69 -14 -91 28 -135 l31 -33 142 0 c121 0 143 2 148 16 11 27 -63 152 -116 197 -68 58 -79 81 -72 158 5 53 1 75 -20 132 -14 37 -26 83 -26 103 0 87 82 442 130 562 44 110 111 216 200 317 134 152 213 252 265 338 90 146 114 175 232 274 65 54 126 104 137 112 18 14 24 10 75 -46 102 -111 132 -205 134 -418 1 -89 -4 -134 -27 -231 -34 -145 -32 -170 29 -258 45 -67 173 -308 216 -411 14 -33 55 -134 90 -224 81 -207 104 -236 198 -247 57 -6 68 -12 107 -49 42 -40 44 -44 44 -102 0 -103 34 -122 216 -123 104 0 154 7 154 24 0 29 -61 135 -94 164 -20 18 -74 51 -118 73 -141 71 -240 184 -341 391 -60 121 -102 242 -133 381 -21 93 -25 137 -25 254 0 85 7 170 15 210 8 38 24 109 35 159 11 51 29 169 39 263 15 130 23 176 37 191 9 10 20 34 24 52 5 23 13 34 27 36 11 2 67 -16 124 -39 57 -23 156 -53 219 -66 150 -32 373 -33 636 -4 252 28 296 17 342 -87 14 -31 31 -95 39 -142 16 -104 22 -471 10 -675 -5 -96 -5 -188 2 -255 7 -68 7 -148 2 -225 -5 -66 -12 -175 -16 -242 -8 -145 -2 -161 79 -197 79 -35 90 -53 98 -153 6 -72 11 -89 31 -109 44 -45 217 -55 305 -19 30 13 32 16 22 42 -5 16 -24 51 -42 79 -26 39 -48 58 -112 92 -44 23 -88 51 -98 61 -26 25 -77 256 -77 347 0 91 24 260 56 399 15 63 30 163 34 235 10 157 23 219 65 330 19 48 46 128 60 176 42 146 110 309 138 332 19 16 168 33 210 25 18 -3 52 -16 77 -28 104 -52 265 -57 472 -15 122 25 122 25 149 -85 16 -67 16 -83 5 -115 -34 -100 -135 -224 -195 -240 -45 -12 -66 -33 -85 -86 -12 -34 -17 -39 -41 -36 -15 2 -39 11 -53 20 -17 11 -46 16 -94 16 -61 -1 -72 -4 -97 -28 -63 -61 -100 -185 -65 -220 14 -14 27 -17 64 -12 89 12 160 36 215 72 46 31 67 38 134 44 117 12 132 24 205 163 53 101 101 174 176 267 76 94 83 116 81 245 -2 120 -12 180 -34 202 -8 8 -54 21 -103 30 -84 14 -136 32 -261 88 -57 27 -137 50 -200 60 -23 4 -46 12 -52 19 -21 25 -33 148 -20 214 14 79 9 115 -32 200 -51 104 -51 165 -1 328 52 170 62 244 62 483 0 109 3 213 6 231 15 70 116 134 178 110 l26 -9 -22 -58 c-26 -70 -26 -136 1 -206 32 -86 64 -254 59 -311 -3 -34 -13 -65 -31 -91 -33 -49 -33 -62 -3 -122 13 -27 32 -66 42 -88 23 -48 75 -85 121 -85 31 0 99 22 163 54 18 8 31 29 46 76 19 58 87 226 170 424 20 47 49 90 89 134 l60 65 0 64 c0 63 0 64 48 107 26 24 47 53 47 64 0 16 8 20 48 24 30 3 67 17 101 38 54 33 54 33 32 51 l-21 17 30 22 c50 36 40 50 -36 50 -38 0 -79 6 -98 15 -40 19 -206 152 -206 166 0 5 -44 56 -97 111 -90 93 -107 105 -200 150 -56 26 -111 48 -123 48 -11 0 -48 12 -83 26 -34 14 -80 27 -102 29 -22 1 -69 7 -105 14 -36 6 -155 11 -265 10 -160 0 -203 -3 -212 -14z"/>
-      </g>
-    </svg>
-    <p class="rev" style="--d:.5s">Algún día vas a tener tu propio caballo. De eso no tengo ninguna duda.</p>
-    <p class="rev" style="--d:1.7s">Porque la gente que trabaja tan duro como tú, tarde o temprano, alcanza sus sueños.</p>
-    <p class="rev" style="--d:2.9s">Y ese día lo vas a disfrutar tanto como te lo mereces. ✨</p>
-    <button class="btn next rev" style="--d:4.1s">Continuar</button>
-  </div>
-</section>
-
-<!-- ========== 13 · LAS VELITAS ========== -->
-<section class="scene" data-bg="dusk" data-ink="light">
-  <div class="wrap">
-    <h2 class="rev" style="--d:.2s">Hoy es tu día 🎂</h2>
-    <p class="sub rev" style="--d:.5s">sopla las velitas… (tócalas una por una)</p>
-    <svg id="cake" class="art rev" style="--d:.8s" viewBox="0 0 260 210" aria-hidden="true">
-      <ellipse cx="130" cy="192" rx="98" ry="12" fill="#fff" opacity=".25"/>
-      <rect x="55" y="140" width="150" height="48" rx="12" fill="#e8a3b8"/>
-      <path d="M55,148 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 q9,10 18,0 l0,-10 l-144,0 Z" fill="#f8dae4"/>
-      <rect x="77" y="104" width="106" height="40" rx="10" fill="#f5c9d8"/>
-      <path d="M77,111 q8,9 16,0 q8,9 16,0 q8,9 16,0 q8,9 16,0 q8,9 16,0 q8,9 16,0 l0,-9 l-96,0 Z" fill="#fdeef3"/>
-      <ellipse cx="130" cy="104" rx="53" ry="9" fill="#fdeef3"/>
-      <!-- velitas -->
-      <g class="candle" data-candle="0">
-        <rect x="-15" y="46" width="30" height="60" fill="transparent" transform="translate(90,0)"/>
-        <rect x="87" y="70" width="7" height="32" rx="3" fill="#a8d8d0"/>
-        <line x1="90.5" y1="70" x2="90.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
-        <path class="flame" d="M90.5,64 C94,58 94,52 90.5,47 C87,52 87,58 90.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
-        <path class="smoke" d="M90.5,60 C88,54 93,50 90.5,44"/>
-      </g>
-      <g class="candle" data-candle="1">
-        <rect x="-15" y="46" width="30" height="60" fill="transparent" transform="translate(110,0)"/>
-        <rect x="107" y="70" width="7" height="32" rx="3" fill="#f0b8c8"/>
-        <line x1="110.5" y1="70" x2="110.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
-        <path class="flame" d="M110.5,64 C114,58 114,52 110.5,47 C107,52 107,58 110.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
-        <path class="smoke" d="M110.5,60 C108,54 113,50 110.5,44"/>
-      </g>
-      <g class="candle" data-candle="2">
-        <rect x="-15" y="46" width="30" height="60" fill="transparent" transform="translate(130,0)"/>
-        <rect x="127" y="70" width="7" height="32" rx="3" fill="#f5e3a8"/>
-        <line x1="130.5" y1="70" x2="130.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
-        <path class="flame" d="M130.5,64 C134,58 134,52 130.5,47 C127,52 127,58 130.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
-        <path class="smoke" d="M130.5,60 C128,54 133,50 130.5,44"/>
-      </g>
-      <g class="candle" data-candle="3">
-        <rect x="-15" y="46" width="30" height="60" fill="transparent" transform="translate(150,0)"/>
-        <rect x="147" y="70" width="7" height="32" rx="3" fill="#c9b8ee"/>
-        <line x1="150.5" y1="70" x2="150.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
-        <path class="flame" d="M150.5,64 C154,58 154,52 150.5,47 C147,52 147,58 150.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
-        <path class="smoke" d="M150.5,60 C148,54 153,50 150.5,44"/>
-      </g>
-      <g class="candle" data-candle="4">
-        <rect x="-15" y="46" width="30" height="60" fill="transparent" transform="translate(170,0)"/>
-        <rect x="167" y="70" width="7" height="32" rx="3" fill="#a8c9e8"/>
-        <line x1="170.5" y1="70" x2="170.5" y2="65" stroke="#5a4a42" stroke-width="1.6"/>
-        <path class="flame" d="M170.5,64 C174,58 174,52 170.5,47 C167,52 167,58 170.5,64 Z" fill="#ffd98a" stroke="#ffb84d" stroke-width="1"/>
-        <path class="smoke" d="M170.5,60 C168,54 173,50 170.5,44"/>
-      </g>
-    </svg>
-    <div id="wish">
-      <p>Mi deseo ya lo pedí por ti:</p>
-      <p><strong>que logres todo, todo lo que te propongas.</strong></p>
-      <p>Que la vida te devuelva aunque sea la mitad de lo que tú das.</p>
-      <p>Y que nunca dejes de volar alto. 🌟</p>
-      <button class="btn next">Continuar</button>
+    <!-- ================= HOJA 10 · LA FRASE ================= -->
+    <div class="sheet" data-bg="sunset" style="z-index:4">
+      <div class="face front paper">
+        <div class="pg">
+          <p class="rev" style="--d:.3s">Y hay algo que es verdad, y que una vez te dije:</p>
+          <div class="quote rev" style="--d:1.4s">
+            Por ti le agarré cariño a los caballos.<br>
+            Ahora, en automático, miro un caballito…<br>
+            y me acuerdo de ti. 🫂
+          </div>
+          <div class="orna rev" style="--d:2.6s"><svg viewBox="0 0 110 14"><use href="#divider"/></svg></div>
+          <p class="rev" style="--d:3.2s">Hay personas así: que convierten cosas normales en cosas especiales.</p>
+          <button disabled class="btn next rev" style="--d:4.4s">Continuar</button>
+          <div class="pnum">· 10 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
     </div>
-  </div>
-</section>
 
-<!-- ========== 14 · CIERRE ========== -->
-<section class="scene" data-bg="fiesta" data-ink="dark" data-glow="1">
-  <div class="confetti" aria-hidden="true"></div>
-  <div class="wrap">
-    <h1 class="rev" style="--d:.3s">Feliz cumpleaños,<br>Priscila ✨</h1>
-    <p class="rev" style="--d:1.4s">Gracias por ser como eres: una chica increíble, fuerte, dedicada y de gran corazón.</p>
-    <p class="rev" style="--d:2.6s"><strong>Te quiero mucho. 🫂</strong></p>
-    <p class="rev" style="--d:3.7s">Esto fue hecho con tiempo, cariño y dedicación… porque te lo mereces.</p>
-    <div class="firma rev" style="--d:4.8s">— Enrique</div>
-    <button id="restart" class="btn rev" style="--d:5.8s">Volver a ver la historia ↺</button>
-  </div>
-</section>
+    <!-- ================= HOJA 9 · LINDA ================= -->
+    <div class="sheet" data-bg="lilac" style="z-index:5">
+      <div class="face front paper">
+        <div class="pg">
+          <p class="rev" style="--d:.3s">Un pequeño detalle más…</p>
+          <p class="rev" style="--d:1.3s">Hay gente que pasa años buscando la palabra perfecta para describir a alguien.</p>
+          <p class="rev" style="--d:2.5s">Tus papás la encontraron desde el primer día:</p>
+          <div class="linda rev" style="--d:3.7s">Linda</div>
+          <p class="rev" style="--d:4.7s">No pudieron elegir mejor. ✨</p>
+          <button disabled class="btn next rev" style="--d:5.7s">Continuar</button>
+          <div class="pnum">· 9 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
 
-</main>
+    <!-- ================= HOJA 8 · GUSTOS ================= -->
+    <div class="sheet" data-bg="cream" style="z-index:6">
+      <div class="face front paper">
+        <div class="pg">
+          <h2 class="rev" style="--d:.2s"><span class="ink">Cosas que te hacen ser tú</span></h2>
+          <p class="peq rev" style="--d:.5s">(toca cada una 👆)</p>
+          <div class="cards rev" style="--d:.8s">
+            <button class="card" data-msg="El campeón indiscutible 🏆"><em>🍦</em>Helado de galleta Oreo</button>
+            <button class="card" data-msg="Para los días que merecen algo especial ✨"><em>🍨</em>Tiramisú</button>
+            <button class="card" data-msg="Ácidas por fuera, dulces por dentro… igual que alguien que conozco 🤭"><em>🍬</em>Tiras ácidas</button>
+            <button class="card" data-msg="Pero del bueno. Del que sí asusta 👻"><em>🎬</em>Terror</button>
+            <button class="card" data-msg="Paciencia, precisión y estrategia. Muy tu estilo ⚾"><em>⚾</em>Béisbol</button>
+            <button class="card" data-msg="En segundo lugar solo porque el café va primero 🤎"><em>🍫</em>Chocolate</button>
+            <button class="card" data-msg="Sin azúcar, para sentir el sabor de verdad ☕"><em>☕</em>Café de grano</button>
+            <button class="card no" data-msg="Jamás. Ni intentarlo 🚫😄"><em>🍕</em>Pizza</button>
+            <button class="card no" data-msg="Tampoco. Eso ya quedó claro 🚫"><em>🍲</em>Birria</button>
+          </div>
+          <div id="cardMsg"><span class="peq">…</span></div>
+          <button disabled id="s9btn" class="btn next hidden">Continuar</button>
+          <div class="pnum">· 8 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= HOJA 7 · CAFÉ ================= -->
+    <div class="sheet" data-bg="coffee" data-rain="1" style="z-index:7">
+      <div class="face front paper">
+        <div class="pg">
+          <div class="wash rev" style="--d:.2s;--wash:radial-gradient(circle,rgba(190,140,90,.45),transparent 70%)">
+            <svg class="art-sm art" viewBox="0 0 220 170" aria-hidden="true">
+              <g stroke="#a98868" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".85">
+                <path d="M84,66 C79,56 88,48 83,38">
+                  <animate attributeName="opacity" values=".2;.85;.2" dur="2.8s" repeatCount="indefinite"/>
+                  <animateTransform attributeName="transform" type="translate" values="0 0;0 -7;0 0" dur="2.8s" repeatCount="indefinite"/>
+                </path>
+                <path d="M102,64 C97,52 106,46 101,34">
+                  <animate attributeName="opacity" values=".85;.2;.85" dur="3.4s" repeatCount="indefinite"/>
+                  <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="3.4s" repeatCount="indefinite"/>
+                </path>
+                <path d="M119,66 C114,56 123,48 118,38">
+                  <animate attributeName="opacity" values=".4;.85;.4" dur="3s" repeatCount="indefinite"/>
+                  <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="3s" repeatCount="indefinite"/>
+                </path>
+              </g>
+              <ellipse cx="100" cy="152" rx="72" ry="11" fill="#caa87e" opacity=".5"/>
+              <path d="M55,88 L145,88 C145,120 132,144 100,144 C68,144 55,120 55,88 Z" fill="#fdf6ec" stroke="#c9a87e" stroke-width="1.5"/>
+              <ellipse cx="100" cy="89" rx="45" ry="8" fill="#5a3d2e"/>
+              <path d="M145,96 C167,94 170,122 146,127" stroke="#fdf6ec" stroke-width="8" fill="none" stroke-linecap="round"/>
+              <path d="M158,132 A20,20 0 0,1 198,132 Z" fill="#e0a86a"/>
+              <path d="M166,132 A14,14 0 0,1 172,120 M178,116 A14,14 0 0,1 190,126" stroke="#b57e42" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="rev" style="--d:.5s">Claro, hasta los corazones más fuertes necesitan sus momentos de paz.</p>
+          <p class="rev" style="--d:1.6s">Un clima frío. Una taza de café de grano <em>—sin azúcar, por supuesto—</em>.</p>
+          <p class="rev" style="--d:2.8s">Y un pan dulce para acompañar. ☕</p>
+          <p class="rev" style="--d:3.8s">Porque los pequeños placeres también son felicidad.</p>
+          <button disabled class="btn next rev" style="--d:4.9s">Continuar</button>
+          <div class="pnum">· 7 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= HOJA 6 · LOS SUYOS ================= -->
+    <div class="sheet" data-bg="rose" data-glow="1" style="z-index:8">
+      <div class="face front paper">
+        <div class="pg">
+          <div class="rev" style="--d:.2s;font-size:2.1rem;letter-spacing:.3em">🐾 🏡 🐾</div>
+          <div class="orna rev" style="--d:.5s"><svg viewBox="0 0 110 14"><use href="#divider"/></svg></div>
+          <p class="rev" style="--d:.8s">Y no solo con sus pacientes.</p>
+          <p class="rev" style="--d:1.8s">Con su familia, con su hermanito, con los shiquis… 🐾</p>
+          <p class="rev" style="--d:2.9s">Cuida a los suyos con una dedicación que no se ve todos los días.</p>
+          <p class="rev" style="--d:4s"><strong>Tiene uno de los corazones más nobles que conozco.</strong> 🤍</p>
+          <button disabled class="btn next rev" style="--d:5.1s">Continuar</button>
+          <div class="pnum">· 6 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= HOJA 5 · SUS MANOS ================= -->
+    <div class="sheet" data-bg="teal" style="z-index:9">
+      <div class="face front paper">
+        <div class="pg">
+          <div class="wash rev" style="--d:.2s;--wash:radial-gradient(circle,rgba(120,190,170,.4),transparent 70%)">
+            <svg class="art-sm art" viewBox="0 0 100 90" aria-hidden="true">
+              <circle cx="50" cy="42" r="34" fill="none" stroke="#7ba89a" stroke-width="1.5" opacity=".55">
+                <animate attributeName="r" values="30;44" dur="2.6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".6;0" dur="2.6s" repeatCount="indefinite"/>
+              </circle>
+              <path class="beat" d="M50,30 C50,21 62,14 71,22 C80,30 76,44 50,63 C24,44 20,30 29,22 C38,14 50,21 50,30 Z" fill="#d76a86"/>
+            </svg>
+          </div>
+          <p class="rev" style="--d:.5s">Hay personas que eligieron ayudar a los demás como forma de vida.</p>
+          <p class="rev" style="--d:1.6s"><strong>Ella es de esas.</strong></p>
+          <p class="rev" style="--d:2.6s">Sus pacientes llegan con dolor… y se van con esperanza.</p>
+          <p class="rev" style="--d:3.7s">Eso no lo enseña ninguna universidad: eso ya venía en ella. 🤍</p>
+          <button disabled class="btn next rev" style="--d:4.8s">Continuar</button>
+          <div class="pnum">· 5 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= HOJA 4 · CONSTELACIÓN ================= -->
+    <div class="sheet" data-bg="night" data-stars="1" style="z-index:10">
+      <div class="face front paper">
+        <div class="pg pg-night">
+          <h2 class="rev" style="--d:.2s"><span class="ink">Toca cada estrella ⭐</span></h2>
+          <svg id="constel" class="art rev" style="--d:.6s" viewBox="0 0 300 240" aria-hidden="true">
+            <path class="cline" d="M38,178 L92,158 L148,162 L204,176"/>
+            <path class="cline" d="M148,162 L150,104 L196,72 L246,48"/>
+            <g class="cstar" data-star="0" transform="translate(38,178)"><circle class="hit" r="26"/><circle class="halo" r="17"/><circle class="core" r="5"/></g>
+            <g class="cstar" data-star="1" transform="translate(92,158)"><circle class="hit" r="26"/><circle class="halo" r="17"/><circle class="core" r="5.5"/></g>
+            <g class="cstar" data-star="2" transform="translate(148,162)"><circle class="hit" r="26"/><circle class="halo" r="17"/><circle class="core" r="6"/></g>
+            <g class="cstar" data-star="3" transform="translate(204,176)"><circle class="hit" r="26"/><circle class="halo" r="17"/><circle class="core" r="5"/></g>
+            <g class="cstar" data-star="4" transform="translate(150,104)"><circle class="hit" r="26"/><circle class="halo" r="17"/><circle class="core" r="5.5"/></g>
+            <g class="cstar" data-star="5" transform="translate(196,72)"><circle class="hit" r="26"/><circle class="halo" r="17"/><circle class="core" r="5"/></g>
+            <g class="cstar" data-star="6" transform="translate(246,48)"><circle class="hit" r="26"/><circle class="halo" r="17"/><circle class="core" r="6"/></g>
+          </svg>
+          <div id="starMsg"><span class="peq">cada una guarda algo…</span></div>
+          <div id="starCount">0 de 7</div>
+          <div id="s5end" class="hidden">
+            <p>Si sus logros fueran estrellas, el cielo ya tendría una constelación nueva…</p>
+            <p>y sería la más brillante de todas ✨</p>
+            <button disabled class="btn next">Continuar</button>
+          </div>
+          <div class="pnum">· 4 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= HOJA 3 · LAS ALTURAS ================= -->
+    <div class="sheet" data-bg="sky" style="z-index:11">
+      <div class="face front paper">
+        <div class="pg">
+          <div class="wash rev" style="--d:.2s;--wash:radial-gradient(circle,rgba(140,180,220,.45),transparent 70%)">
+            <svg class="art" viewBox="0 0 860 581" aria-hidden="true">
+              <g class="wind">
+                <path d="M80,140 C240,90 420,180 620,120"/>
+                <path d="M120,300 C300,250 500,330 700,260"/>
+                <path d="M60,440 C260,400 460,480 660,420"/>
+              </g>
+              <use href="#horseShape" fill="#2e2b45"/>
+            </svg>
+          </div>
+          <p class="rev" style="--d:.5s">Dicen que a esa chica le dan miedo las alturas…</p>
+          <p class="rev" style="--d:1.6s">Pero hay una forma de volar que no da nada de miedo:</p>
+          <p class="rev" style="--d:2.7s"><strong>la de soñar en grande y luchar por lo que uno quiere.</strong></p>
+          <p class="rev" style="--d:3.9s">Y para ese tipo de vuelos, ella nació con alas.</p>
+          <button disabled class="btn next rev" style="--d:5s">Continuar</button>
+          <div class="pnum">· 3 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= HOJA 2 · PUEBLO REAL ================= -->
+    <div class="sheet" data-bg="meadow" data-glow="1" style="z-index:12">
+      <div class="face front paper">
+        <div class="pg">
+          <div class="wash rev" style="--d:.2s;--wash:radial-gradient(circle,rgba(150,190,130,.5),transparent 70%)">
+            <svg class="art" viewBox="0 0 860 581" aria-hidden="true">
+              <use href="#horseShape" fill="#22202a"/>
+            </svg>
+          </div>
+          <p class="rev" style="--d:.5s">En un lugar llamado <strong>Pueblo Real</strong>, entre todos los caballos, había uno distinto.</p>
+          <p class="rev" style="--d:1.6s">Negro, elegante, con ese algo especial que no se puede explicar.</p>
+          <p class="rev" style="--d:2.7s">Se llamaba <strong>Pegaso</strong>.</p>
+          <p class="rev" style="--d:3.7s">Y un día, una chica se subió a él… y quedó fascinada. 🐎</p>
+          <button disabled class="btn next rev" style="--d:4.8s">Continuar</button>
+          <div class="pnum">· 2 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= HOJA 1 · EL CAMINO ================= -->
+    <div class="sheet" data-bg="dawn" style="z-index:13">
+      <div class="face front paper">
+        <div class="pg">
+          <div class="wash rev" style="--d:.2s;--wash:radial-gradient(circle,rgba(200,160,200,.45),transparent 70%)">
+            <svg class="art" viewBox="0 0 300 150" aria-hidden="true">
+              <circle cx="60" cy="46" r="20" fill="#f5d488" opacity=".9"/>
+              <circle cx="60" cy="46" r="30" fill="#f5d488" opacity=".3"/>
+              <path d="M0,150 L0,96 C40,66 78,58 112,84 C150,112 190,96 230,72 C256,58 282,58 300,70 L300,150 Z" fill="#8a6ea8" opacity=".55"/>
+              <path d="M0,150 L0,116 C50,92 96,96 138,116 C180,136 226,124 268,104 C280,99 292,98 300,102 L300,150 Z" fill="#6e5490" opacity=".7"/>
+              <path d="M0,150 L0,134 C60,118 130,126 180,140 C220,150 268,144 300,132 L300,150 Z" fill="#54406e"/>
+              <g class="birds">
+                <path d="M138,30 q6,-7 12,0 M154,36 q5,-6 10,0"/>
+              </g>
+            </svg>
+          </div>
+          <p class="rev" style="--d:.5s">Hay historias que comienzan en caminos sencillos…</p>
+          <p class="rev" style="--d:1.5s">Entre montañas verdes, clima frío y ese camino que lleva hacia Chichicastenango.</p>
+          <p class="rev" style="--d:2.6s">Esta es una de esas historias. ✨</p>
+          <button disabled class="btn next rev" style="--d:3.6s">Continuar</button>
+          <div class="pnum">· 1 ·</div>
+        </div>
+      </div>
+      <div class="face back paper"></div>
+    </div>
+
+    <!-- ================= PORTADA ================= -->
+    <div id="cover">
+      <div class="cover-face cover-front">
+        <div class="frame"></div>
+        <span class="corner c-tl"><svg viewBox="0 0 34 34"><use href="#cornerOrn"/></svg></span>
+        <span class="corner c-tr"><svg viewBox="0 0 34 34"><use href="#cornerOrn"/></svg></span>
+        <span class="corner c-bl"><svg viewBox="0 0 34 34"><use href="#cornerOrn"/></svg></span>
+        <span class="corner c-br"><svg viewBox="0 0 34 34"><use href="#cornerOrn"/></svg></span>
+        <div class="medallion">
+          <svg viewBox="0 0 860 581" aria-hidden="true"><use href="#horseShape" fill="#d4a95c"/></svg>
+        </div>
+        <h1>Para Priscila ✨</h1>
+        <p class="cov-sub">una pequeña historia,<br>hecha con mucho cariño</p>
+        <div class="hint">Toca para abrir el libro 📖</div>
+      </div>
+      <div class="cover-face cover-back"></div>
+    </div>
+
+    <div class="ribbon" aria-hidden="true"></div>
+  </div>
+</div>
 
 <script>
 (function(){
   'use strict';
 
-  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var sheets = Array.prototype.slice.call(document.querySelectorAll('.sheet')).reverse(); /* orden: hoja 1 primero */
+  var cover = document.getElementById('cover');
+  var book  = document.getElementById('book');
   var bgA = document.getElementById('bgA');
   var bgB = document.getElementById('bgB');
   var front = bgA;
   var fill = document.getElementById('progressFill');
-  var idx = 0;
+  var idx = -1;            /* -1 = libro cerrado */
+  var busy = false;
   var audioCtx = null;
 
-  /* ---------- sonido sutil ---------- */
+  /* ---------- sonidos sutiles ---------- */
+  function ctx(){
+    if(!audioCtx){ try{ audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+    if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
   function chime(hi){
     try{
-      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      if(audioCtx.state === 'suspended') audioCtx.resume();
-      var t = audioCtx.currentTime;
-      var o = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
+      var a = ctx(); if(!a) return;
+      var t = a.currentTime;
+      var o = a.createOscillator(), g = a.createGain();
       o.type = 'sine';
       o.frequency.setValueAtTime(hi ? 880 : 700, t);
       o.frequency.exponentialRampToValueAtTime(hi ? 1180 : 960, t + 0.16);
       g.gain.setValueAtTime(0.0001, t);
       g.gain.exponentialRampToValueAtTime(0.03, t + 0.03);
       g.gain.exponentialRampToValueAtTime(0.0001, t + 0.45);
-      o.connect(g); g.connect(audioCtx.destination);
+      o.connect(g); g.connect(a.destination);
       o.start(t); o.stop(t + 0.5);
     }catch(e){}
   }
+  function flipSound(){
+    try{
+      var a = ctx(); if(!a) return;
+      var dur = 0.5;
+      var buf = a.createBuffer(1, a.sampleRate*dur, a.sampleRate);
+      var d = buf.getChannelData(0);
+      for(var i=0;i<d.length;i++){ d[i] = (Math.random()*2-1) * Math.pow(1 - i/d.length, 2); }
+      var src = a.createBufferSource(); src.buffer = buf;
+      var f = a.createBiquadFilter(); f.type='bandpass';
+      f.frequency.setValueAtTime(600, a.currentTime);
+      f.frequency.exponentialRampToValueAtTime(2400, a.currentTime + dur*.7);
+      f.Q.value = 0.8;
+      var g = a.createGain();
+      g.gain.setValueAtTime(0.05, a.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + dur);
+      src.connect(f); f.connect(g); g.connect(a.destination);
+      src.start();
+    }catch(e){}
+  }
 
-  /* ---------- fondo ---------- */
+  /* ---------- ambiente ---------- */
   function setBg(name){
     var back = (front === bgA) ? bgB : bgA;
     back.className = 'bglayer bg-' + name;
-    // forzar reflow para que la transición aplique
     void back.offsetWidth;
     back.classList.add('front');
     front.classList.remove('front');
     front = back;
   }
-
-  /* ---------- navegación ---------- */
-  /* los botones nacen deshabilitados (invisibles) y se habilitan justo
-     cuando su animación de entrada comienza: así un toque impaciente
-     no puede saltarse una escena sin querer */
-  function armButtons(scene){
-    scene.querySelectorAll('.btn').forEach(function(b){
-      b.disabled = true;
-      var enable = function(){ b.disabled = false; };
-      b.addEventListener('animationstart', enable, { once: true });
-      setTimeout(enable, 6500); /* red de seguridad por si la animación no dispara */
-    });
+  function applyFx(el){
+    document.body.classList.toggle('starry', el.dataset.stars === '1');
+    document.body.classList.toggle('glowy',  el.dataset.glow  === '1');
+    document.body.classList.toggle('rainy',  el.dataset.rain  === '1');
   }
 
-  function go(i){
-    if(i < 0 || i >= scenes.length) return;
-    scenes[idx].classList.remove('active');
-    idx = i;
-    var s = scenes[idx];
-    s.scrollTop = 0;
-    armButtons(s);
-    s.classList.add('active');
-    setBg(s.dataset.bg);
-    document.body.classList.toggle('starry', s.dataset.stars === '1');
-    document.body.classList.toggle('glowy', s.dataset.glow === '1');
-    fill.style.width = (idx / (scenes.length - 1) * 100) + '%';
+  /* ---------- botones protegidos contra toques impacientes ---------- */
+  function armOne(b, ms){
+    b.disabled = true;
+    var enable = function(){ b.disabled = false; };
+    b.addEventListener('animationstart', enable, { once:true });
+    setTimeout(enable, ms);
+  }
+  function armButtons(scope){
+    scope.querySelectorAll('.btn').forEach(function(b){ armOne(b, 6500); });
+  }
+
+  /* ---------- abrir el libro ---------- */
+  var coverReady = false;
+  setTimeout(function(){ coverReady = true; }, 900);
+  cover.addEventListener('click', function(){
+    if(!coverReady || cover.classList.contains('open')) return;
+    flipSound();
+    cover.classList.add('open');
+    idx = 0;
+    var s = sheets[0];
+    armButtons(s); /* síncrono: cierra la ventana del doble-toque */
+    setTimeout(function(){
+      var pg = s.querySelector('.face.front .pg');
+      pg.classList.add('active');
+      pg.scrollTop = 0;
+      setBg(s.dataset.bg);
+      applyFx(s);
+      fill.style.width = (1/13*100) + '%';
+    }, 650);
+    setTimeout(function(){ cover.style.visibility = 'hidden'; }, 1450);
+  });
+
+  /* ---------- pasar de hoja ---------- */
+  function next(){
+    if(busy || idx < 0 || idx >= sheets.length - 1) return;
+    busy = true;
+    var cur = sheets[idx];
+    var nxt = sheets[idx + 1];
+    var pre = sheets[idx + 2];
+    if(pre) pre.classList.remove('offstage'); /* precalentar la que sigue */
+    armButtons(nxt); /* síncrono: cierra la ventana del doble-toque */
+    flipSound();
+    cur.classList.add('flipping','flipped');
+    setTimeout(function(){
+      cur.classList.remove('flipping');
+      cur.classList.add('gone');
+      busy = false;
+    }, 1100);
+    idx++;
+    setTimeout(function(){
+      var pg = nxt.querySelector('.face.front .pg');
+      pg.classList.add('active');
+      pg.scrollTop = 0;
+      setBg(nxt.dataset.bg);
+      applyFx(nxt);
+      fill.style.width = ((idx+1)/13*100) + '%';
+    }, 520);
   }
 
   document.querySelectorAll('.btn.next').forEach(function(b){
-    b.addEventListener('click', function(){ chime(false); go(idx + 1); });
+    b.addEventListener('click', function(){ chime(false); next(); });
   });
 
   document.addEventListener('keydown', function(e){
-    if(e.key === 'ArrowRight'){
-      var btn = scenes[idx].querySelector('.btn.next:not(.hidden)');
-      /* solo si el botón es realmente visible: evita saltarse los minijuegos */
-      if(btn && !btn.disabled && btn.offsetParent !== null && getComputedStyle(btn).opacity !== '0') btn.click();
-    }
+    if(e.key !== 'ArrowRight') return;
+    if(idx < 0){ cover.click(); return; }
+    var btn = sheets[idx].querySelector('.btn.next:not(.hidden)');
+    if(btn && !btn.disabled && btn.offsetParent !== null && getComputedStyle(btn).opacity !== '0') btn.click();
   });
 
-  /* ---------- estrellas de fondo ---------- */
-  (function makeStars(){
-    var box = document.getElementById('stars');
-    for(var i = 0; i < 60; i++){
-      var st = document.createElement('i');
-      var sz = 1 + Math.random() * 2.2;
-      st.style.width = sz + 'px';
-      st.style.height = sz + 'px';
-      st.style.left = (Math.random() * 100) + '%';
-      st.style.top = (Math.random() * 100) + '%';
-      st.style.animationDelay = (Math.random() * 3.2) + 's';
-      st.style.animationDuration = (2.4 + Math.random() * 2.4) + 's';
-      box.appendChild(st);
+  /* ---------- ambiente: estrellas, luciérnagas, lluvia, polvo ---------- */
+  (function make(){
+    var st = document.getElementById('stars');
+    for(var i=0;i<60;i++){
+      var s = document.createElement('i');
+      var sz = 1 + Math.random()*2.2;
+      s.style.width=sz+'px'; s.style.height=sz+'px';
+      s.style.left=(Math.random()*100)+'%'; s.style.top=(Math.random()*100)+'%';
+      s.style.animationDelay=(Math.random()*3.2)+'s';
+      s.style.animationDuration=(2.4+Math.random()*2.4)+'s';
+      st.appendChild(s);
     }
-  })();
-
-  /* ---------- luciérnagas ---------- */
-  (function makeFireflies(){
-    var box = document.getElementById('fireflies');
-    for(var i = 0; i < 12; i++){
+    var ff = document.getElementById('fireflies');
+    for(i=0;i<12;i++){
       var f = document.createElement('i');
-      f.style.left = (4 + Math.random() * 92) + '%';
-      f.style.animationDuration = (9 + Math.random() * 9) + 's';
-      f.style.animationDelay = (Math.random() * 10) + 's';
-      box.appendChild(f);
+      f.style.left=(4+Math.random()*92)+'%';
+      f.style.animationDuration=(9+Math.random()*9)+'s';
+      f.style.animationDelay=(Math.random()*10)+'s';
+      ff.appendChild(f);
     }
-  })();
-
-  /* ---------- lluvia (escena café) ---------- */
-  (function makeRain(){
-    var box = document.querySelector('.rain');
-    if(!box) return;
-    for(var i = 0; i < 16; i++){
-      var d = document.createElement('i');
-      d.style.left = (Math.random() * 100) + '%';
-      d.style.animationDuration = (1.6 + Math.random() * 1.6) + 's';
-      d.style.animationDelay = (Math.random() * 3) + 's';
-      d.style.opacity = 0.25 + Math.random() * 0.4;
-      box.appendChild(d);
+    var rn = document.getElementById('rain');
+    for(i=0;i<22;i++){
+      var r = document.createElement('i');
+      r.style.left=(Math.random()*100)+'%';
+      r.style.animationDuration=(1.4+Math.random()*1.6)+'s';
+      r.style.animationDelay=(Math.random()*3)+'s';
+      r.style.opacity=.25+Math.random()*.4;
+      rn.appendChild(r);
     }
-  })();
-
-  /* ---------- confeti (cierre) ---------- */
-  (function makeConfetti(){
-    var box = document.querySelector('.confetti');
-    if(!box) return;
+    var du = document.getElementById('dust');
+    for(i=0;i<14;i++){
+      var m = document.createElement('i');
+      m.style.left=(Math.random()*100)+'%';
+      m.style.top=(Math.random()*100)+'%';
+      m.style.animationDuration=(6+Math.random()*8)+'s';
+      m.style.animationDelay=(Math.random()*6)+'s';
+      m.style.opacity=.15+Math.random()*.3;
+      du.appendChild(m);
+    }
+    var cf = document.querySelector('.confetti');
     var glyphs = ['✨','🌸','⭐','💛','🌟','💗'];
-    for(var i = 0; i < 18; i++){
+    for(i=0;i<18;i++){
       var c = document.createElement('i');
       c.textContent = glyphs[i % glyphs.length];
-      c.style.left = (Math.random() * 100) + '%';
-      c.style.animationDuration = (6 + Math.random() * 7) + 's';
-      c.style.animationDelay = (Math.random() * 8) + 's';
-      c.style.fontSize = (11 + Math.random() * 10) + 'px';
-      box.appendChild(c);
+      c.style.left=(Math.random()*100)+'%';
+      c.style.animationDuration=(6+Math.random()*7)+'s';
+      c.style.animationDelay=(Math.random()*8)+'s';
+      c.style.fontSize=(11+Math.random()*9)+'px';
+      cf.appendChild(c);
     }
   })();
 
-  /* ---------- escena 5: constelación ---------- */
+  /* ---------- constelación ---------- */
   var milestones = [
     'Terminó su técnico en medicina en la San Carlos 🎓',
     'Va con todo por su licenciatura 📚',
@@ -693,6 +1112,8 @@
 
   document.querySelectorAll('.cstar').forEach(function(star){
     star.addEventListener('click', function(){
+      var pg = star.closest('.pg');
+      if(!pg || !pg.classList.contains('active')) return;
       if(star.classList.contains('lit')) return;
       star.classList.add('lit');
       chime(true);
@@ -703,6 +1124,7 @@
         setTimeout(function(){
           constel.classList.add('done');
           starCount.classList.add('hidden');
+          armOne(s5end.querySelector('.btn'), 2500);
           s5end.classList.remove('hidden');
           s5end.classList.add('show');
         }, 900);
@@ -710,13 +1132,15 @@
     });
   });
 
-  /* ---------- escena 9: tarjetitas ---------- */
+  /* ---------- stickers de gustos ---------- */
   var seenCount = 0;
   var cardMsg = document.getElementById('cardMsg');
   var s9btn = document.getElementById('s9btn');
 
   document.querySelectorAll('.card').forEach(function(card){
     card.addEventListener('click', function(){
+      var pg = card.closest('.pg');
+      if(!pg || !pg.classList.contains('active')) return;
       cardMsg.innerHTML = '<span>' + card.dataset.msg + '</span>';
       if(card.classList.contains('no')){
         card.classList.remove('shake');
@@ -732,54 +1156,77 @@
     });
   });
 
-  /* ---------- escena 13: velitas ---------- */
+  /* ---------- velitas ---------- */
   var outCount = 0;
   var wish = document.getElementById('wish');
+  var cakebox = document.getElementById('cakebox');
 
   document.querySelectorAll('.candle').forEach(function(candle){
     candle.addEventListener('click', function(){
+      var pg = candle.closest('.pg');
+      if(!pg || !pg.classList.contains('active')) return;
       if(candle.classList.contains('out')) return;
       candle.classList.add('out');
       outCount++;
       chime(true);
       if(outCount === 5){
-        setTimeout(function(){ wish.classList.add('show'); }, 700);
+        cakebox.classList.add('allout');
+        setTimeout(function(){
+          armOne(wish.querySelector('.btn'), 4800);
+          wish.classList.add('show');
+        }, 700);
       }
     });
   });
 
-  /* ---------- reiniciar todo ---------- */
+  /* ---------- volver a leer: el libro se cierra y todo renace ---------- */
   document.getElementById('restart').addEventListener('click', function(){
+    if(busy) return;
     chime(false);
-    // constelación
+    /* apagar contenidos sin animación */
+    sheets.forEach(function(s, i){
+      s.style.transition = 'none';
+      s.classList.remove('flipped','flipping','gone');
+      s.classList.toggle('offstage', i > 1);
+      var pg = s.querySelector('.face.front .pg');
+      if(pg){ pg.classList.remove('active'); pg.scrollTop = 0; }
+    });
+    void book.offsetWidth;
+    sheets.forEach(function(s){ s.style.transition = ''; });
+    /* minijuegos a cero */
     litCount = 0;
     document.querySelectorAll('.cstar').forEach(function(s){ s.classList.remove('lit'); });
     constel.classList.remove('done');
-    starMsg.innerHTML = '<span class="sub">cada una guarda algo…</span>';
+    starMsg.innerHTML = '<span class="peq">cada una guarda algo…</span>';
     starCount.textContent = '0 de 7';
     starCount.classList.remove('hidden');
     s5end.classList.add('hidden');
     s5end.classList.remove('show');
-    // tarjetitas
     seenCount = 0;
     document.querySelectorAll('.card').forEach(function(c){ c.classList.remove('seen','shake'); });
-    cardMsg.innerHTML = '<span class="sub">…</span>';
+    cardMsg.innerHTML = '<span class="peq">…</span>';
     s9btn.classList.add('hidden');
-    // velitas
     outCount = 0;
     document.querySelectorAll('.candle').forEach(function(c){ c.classList.remove('out'); });
+    cakebox.classList.remove('allout');
     wish.classList.remove('show');
-    go(0);
+    /* cerrar la portada */
+    idx = -1;
+    coverReady = false;
+    cover.style.visibility = '';
+    cover.classList.remove('open');
+    setBg('night');
+    document.body.classList.add('starry');
+    document.body.classList.remove('glowy','rainy');
+    fill.style.width = '0%';
+    flipSound();
+    setTimeout(function(){ coverReady = true; }, 1500);
   });
 
-  /* siempre inicia desde el principio: sin localStorage, sin sesión, sin nada */
-  armButtons(scenes[0]);
-  document.body.classList.toggle('starry', scenes[0].dataset.stars === '1');
-  document.body.classList.toggle('glowy', scenes[0].dataset.glow === '1');
+  /* ---------- siempre inicia desde el principio ---------- */
+  sheets.forEach(function(s, i){ if(i > 1) s.classList.add('offstage'); });
+  document.body.classList.add('starry');
   fill.style.width = '0%';
-
-  /* si el navegador restaura la página desde caché (volver atrás, reabrir
-     pestaña), recargar para cumplir el requisito de iniciar siempre desde cero */
   window.addEventListener('pageshow', function(e){
     if(e.persisted) window.location.reload();
   });
